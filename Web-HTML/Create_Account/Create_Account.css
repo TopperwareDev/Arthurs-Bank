@@ -1,0 +1,71 @@
+body {
+
+background-color: #7D70BA;
+
+}
+
+h1{
+
+  color: white;
+  font-family: 'Gemunu Libre', sans-serif;
+  text-align: center;
+
+}
+
+.CREATE_ACCOUNT_FORM{
+
+  width: 500px;
+  height: 420px;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  background-color: #343633;
+  border-radius: 10px 10px 10px 10px;
+
+}
+
+.CREATE_ACCOUNT_FORM input{
+
+  width: 91%;
+  padding: 15px 10px;
+  transform: translate(10px, -5px);
+  font-size: 15px;
+
+}
+
+.LOGIN_FORM_TEXT{
+
+  color: white;
+  font-family: 'Gemunu Libre', sans-serif;
+  transform: translate(10px, 0px);
+
+}
+
+.REGISTER_BUTTON{
+
+  color: Black;
+  font-family: 'Gemunu Libre', sans-serif;
+  right: 10px;
+  bottom: 10px;
+  width: 100px;
+  padding: 10px 10px;
+  position: absolute;
+
+  font-size: 15px;
+
+}
+
+.BACK_LOGIN_BUTTON{
+
+  color: Black;
+  font-family: 'Gemunu Libre', sans-serif;
+  left: 10px;
+  bottom: 10px;
+  width: 100px;
+  padding: 10px 10px;
+  position: absolute;
+
+  font-size: 15px;
+
+}
