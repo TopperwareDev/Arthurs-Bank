@@ -30,11 +30,23 @@ const port = 3000; //Port the server listens and send to
 //-----------^^^^^^^^^^------------ setup ----------------------------------------------------------------------------------
 
 //Display Login page
-DisplayHTMLBundle(__dirname, './Web-HTML/Login/Login.html', './Web-HTML/Login/Login.css', './Web-HTML/Login/Login.js');
+//DisplayHTMLBundle(__dirname, './Web-HTML-Public/Login/Login.html');
+
+app.use(express.static('./Web-HTML-Public')); //Share whole Public (Web-HTML-Public) folder
+
+app.get("/", (req, res) => {
+  res.sendFile('Web-HTML-Public/Login/Login.html', { root: __dirname });
+});
+
+app.get("/css", (req, res) => {
+
+res.sendFile('Web-HTML-Public/Login/Login.css', { root: __dirname });
+
+});
 
 
 app.listen(port, () => {
 
-  console.log('using the ears on port ' + port)
+  console.log('using the ears on port ' + port);
 
 });
