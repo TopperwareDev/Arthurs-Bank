@@ -4,9 +4,6 @@ const app = express(); // App - express (When you are calling app it will call t
 
 export default function DisplayHTMLBundle(dirname, HtmlFileLocation){
 
-  app.get("/html", (req, res) => {
-    res.sendFile(HtmlFileLocation, { root: __dirname });
-    console.log('sent html file');
-  });
+  
 
 }

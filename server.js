@@ -32,18 +32,11 @@ const port = 3000; //Port the server listens and send to
 //Display Login page
 //DisplayHTMLBundle(__dirname, './Web-HTML-Public/Login/Login.html');
 
-app.use(express.static('./Web-HTML-Public')); //Share whole Public (Web-HTML-Public) folder
+app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
-app.get("/", (req, res) => {
-  res.sendFile('Web-HTML-Public/Login/Login.html', { root: __dirname });
-});
-
-app.get("/css", (req, res) => {
-
-res.sendFile('Web-HTML-Public/Login/Login.css', { root: __dirname });
+res.json("page not found");
 
 });
-
 
 app.listen(port, () => {
 
