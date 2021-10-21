@@ -1,8 +1,5 @@
 console.log('Starting economy web server');
 
-//import my costom lib
-import DisplayHTMLBundle from "./Code/Arthurs_Lib.js";
-
 import express from "express"; //Call "Express" lib from node_modules
 
 const app = express(); // App - express (When you are calling app it will call the express lib called from above)
@@ -32,6 +29,24 @@ const port = 3000; //Port the server listens and send to
 //Display Login page
 //DisplayHTMLBundle(__dirname, './Web-HTML-Public/Login/Login.html');
 
+app.use(express.static('Web-HTML-Public'));
+
+app.get('/', (req, res) => {
+
+  //res.sendFile(path.join(__dirname, "/Arthus-Bank/Web-HTML-Public/Login/Login.html"));
+  res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.html');
+
+});
+
+app.get('/login.css', (req, res) => {
+
+  //res.sendFile(path.join(__dirname, "/Arthus-Bank/Web-HTML-Public/Login/Login.html"));
+  res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.css');
+
+});
+
+
+
 app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
 res.json("page not found");
@@ -41,5 +56,6 @@ res.json("page not found");
 app.listen(port, () => {
 
   console.log('using the ears on port ' + port);
+  console.log(__dirname);
 
 });
