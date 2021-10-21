@@ -1,20 +1,25 @@
-body {
-
-background-color: #7D70BA;
-
+body{
+  background-color: #7D70BA;
 }
 
 h1{
-
   color: white;
   font-family: 'Gemunu Libre', sans-serif;
   text-align: center;
-
 }
 
 h2{
+  color: white;
+  font-family: 'Gemunu Libre', sans-serif;
+}
 
-    color: white;
-    font-family: 'Gemunu Libre', sans-serif;
+.icon_info{
+  width: 64px;
+  transition: width 0.5s ease-in-out;
+  float: right;
+}
 
+.icon_info:hover{
+  width: 100px;
+  float: right;
 }

@@ -1,6 +1,6 @@
 body {
 
-background-color: #7D70BA;
+  background-color: #7D70BA;
 
 }
 
@@ -43,7 +43,6 @@ h1{
   width: 100px;
   padding: 10px 10px;
   position: absolute;
-
   font-size: 15px;
 
 }
@@ -57,7 +56,6 @@ h1{
   width: 100px;
   padding: 10px 10px;
   position: absolute;
-
   font-size: 15px;
 
 }
