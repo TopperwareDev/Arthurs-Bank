@@ -3,57 +3,133 @@ body{
 }
 
 h1{
-  color: white;
+  position: relative;
   font-family: 'Gemunu Libre', sans-serif;
+  font-size: 60px;
+  color: white;
   text-align: center;
 }
 
 h2{
-  position: absolute;
-  left: 10px;
-  color: white;
   font-family: 'Gemunu Libre', sans-serif;
 }
 
 .div_main{
-  position: relative;
-  margin: auto;
-  width: auto;
+  position: absolute;
+  top: 151px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
   height: 300px;
+  background-color: #343633;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .div_account_name{
-  position: relative;
-  margin: auto;
-  width: auto;
-  height: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 175px;
+  height: 45px;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: #7D70BA;
+  border-width: medium;
+}
+
+.account_name_inner{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 165px;
+  height: 35px;
+  background-color: #7D70BA;
+  border-radius: 5px 5px 5px 5px;
+  border-style: solid;
+  border-color: #7D70BA;
+  border-width: 2px;
+}
+
+.account_name{
+  position: absolute;
+  margin-top: 8px;
+  left: 8px;
+  font-size: 28px;
+  color: white;
 }
 
 .div_info_icon{
-  position: relative;
+  position: absolute;
+  right: 10px;
+  top: 14px;
   display: inline-flex;
-  float: right;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
 }
 
 .icon_info{
-  width: 70%;
-  height: 70%;
-  margin: auto;
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 85%;
+  height: 85%;
   cursor: pointer;
-  transition: all 0.25s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .icon_info:hover{
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
 }
 
 .div_balance{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: 160px;
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.balance{
   position: relative;
-  margin: auto;
-  width: auto;
-  height: 300px;
-  background-color: black;
+  top: -65px;
+  font-size: 105px;
+  text-align: center;
+  color: #93867F;
+}
+
+.div_games{
+  position: absolute;
+  top: 500px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: 150px;
+  background-color: #343633;
+  border-radius: 70px 70px 70px 70px;
 }
