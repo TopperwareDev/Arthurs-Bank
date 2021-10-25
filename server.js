@@ -53,15 +53,17 @@ const port = 3000; //Port the server listens and send to
 
 app.use(express.static('Web-HTML-Public'));
 
-app.get("/", (req,res) => { // Send error if unavaliable page is requested
+app.get("/", (req,res) => {
 
-res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.html')
+res.redirect('Login/Login.html');
 
 });
 
 app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
-res.json("page not found");
+//res.json("page not found");
+
+res.redirect('/Page_Not_Found/Page_Not_Found.html');
 
 });
 
