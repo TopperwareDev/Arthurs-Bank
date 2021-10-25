@@ -112,7 +112,7 @@ h2{
   margin-top: 40px;
   font-size: 30px;
   color: white;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .div_logout:hover .logout_text{
   margin-top: 95px;
@@ -226,6 +226,9 @@ h2{
   text-align: center;
   color: #93867F;
 }
+
+
+
 /* GAMES MENU */
 .div_games{
   position: absolute;
