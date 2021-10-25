@@ -55,27 +55,9 @@ app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
 app.use(express.static('Web-HTML-Public'));
 
-//app.get("/", (req,res) => {
+app.get("/", (req,res) => {
 
-//res.redirect('Login/Login.html');
-
-//});
-
-app.get('/Login', (request, respond) => {
-
-respond.sendFile('Web-HTML-Public/Login/Login.html', { root: __dirname });
-
-});
-
-app.get('/Register', (request, respond) => {
-
-respond.sendFile('Login.html', { root: __dirname });
-
-});
-
-app.get('/Home', (request, respond) => {
-
-respond.sendFile('Login.html', { root: __dirname });
+res.redirect('Login/Login.html');
 
 });
 
