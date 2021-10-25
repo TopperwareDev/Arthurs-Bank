@@ -9,4 +9,8 @@ function GO_MAIN_MENU_BUTTON(){
 
 }
 
-console.log('ahahhhhshhs');
+function LOGIN_BUTTON(){
+
+	window.location.href = '../User_Menu/User_Menu.html'; // move to create account page
+
+}

@@ -1,0 +1,43 @@
+body{
+
+background-color: #7D70BA;
+
+}
+
+h1{
+  font-family: 'Gemunu Libre', sans-serif;
+  text-align: center;
+  font-size: 100px;
+
+  top: -70px;
+  height: 0px;
+
+  position: relative;
+}
+
+h2{
+  font-family: 'Gemunu Libre', sans-serif;
+  text-align: center;
+
+  top: -20px;
+  height: 10px;
+
+  position: relative;
+}
+
+img{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+table{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+}
