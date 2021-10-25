@@ -20,15 +20,15 @@
   <h1 class="text">Login</h1>
 
   <div class="LOGIN_FORM">
-    <form action="#" method="post">
+    <form action="/Login-Register" method="post">
 
       <h2 class="LOGIN_FORM_TEXT">Username:</h2>
-      <input type="text" name="USERNAME_FIELD" placeholder="Username">
+      <input type="text" name="USERNAME_FIELD" placeholder="Username" required>
 
       <h2 class="LOGIN_FORM_TEXT">Password:</h2>
-      <input type="password" name="PASSWORD_FIELD" placeholder="Passowrd">
+      <input type="password" name="PASSWORD_FIELD" placeholder="Passowrd" required>
 
-      <button type="button" class="LOGIN_BUTTON" onclick="LOGIN_BUTTON()">Login</button>
+      <button type="submit" class="LOGIN_BUTTON">Login</button>
 
       <button type="button" name="CREATE_ACCOUNT_BUTTON" class="CREATE_ACCOUNT_BUTTON" onclick="CREATE_NEW_ACCOUNT_BUTTON()">Create Acount</button>
 

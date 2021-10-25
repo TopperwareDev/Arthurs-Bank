@@ -9,8 +9,8 @@ function GO_MAIN_MENU_BUTTON(){
 
 }
 
-function LOGIN_BUTTON(){
+//function LOGIN_BUTTON(){
 
-	window.location.href = '../User_Menu/User_Menu.html'; // move to create account page
+//	window.location.href = '../User_Menu/User_Menu.html'; // move to create account page
 
-}
+//}
