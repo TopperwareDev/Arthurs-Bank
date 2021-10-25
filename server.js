@@ -29,23 +29,35 @@ const port = 3000; //Port the server listens and send to
 //Display Login page
 //DisplayHTMLBundle(__dirname, './Web-HTML-Public/Login/Login.html');
 
+//app.get('/', (req, res) => {
+
+  //res.sendFile(path.join(__dirname, "/Web-HTML-Public/Login/Login.html"));
+  //res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.html');
+
+//});
+
+//app.get('/login.css', (req, res) => {
+
+  //res.sendFile(path.join(__dirname, "/Arthus-Bank/Web-HTML-Public/Login/Login.html"));
+  //res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.css');
+
+//});
+
+
+//app.listen(port, () => {
+
+//  console.log('using the ears on port ' + port);
+//  console.log(__dirname);
+
+//});
+
 app.use(express.static('Web-HTML-Public'));
 
-app.get('/', (req, res) => {
+app.get("/", (req,res) => { // Send error if unavaliable page is requested
 
-  //res.sendFile(path.join(__dirname, "/Arthus-Bank/Web-HTML-Public/Login/Login.html"));
-  res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.html');
-
-});
-
-app.get('/login.css', (req, res) => {
-
-  //res.sendFile(path.join(__dirname, "/Arthus-Bank/Web-HTML-Public/Login/Login.html"));
-  res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.css');
+res.sendFile('/Users/arthurtoppenberg/Documents/GitHub/Arthurs-Bank/Web-HTML-Public/Login/Login.html')
 
 });
-
-
 
 app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
@@ -53,9 +65,4 @@ res.json("page not found");
 
 });
 
-app.listen(port, () => {
-
-  console.log('using the ears on port ' + port);
-  console.log(__dirname);
-
-});
+app.listen(3000);
