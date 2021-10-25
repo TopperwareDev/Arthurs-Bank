@@ -1,0 +1,302 @@
+body{
+  background-color: #7D70BA;
+}
+h1{
+  position: relative;
+  font-family: 'Gemunu Libre', sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+h2{
+  font-family: 'Gemunu Libre', sans-serif;
+}
+/* BACKGROUND ANIMATION */
+.boxes {
+	position: absolute;
+	top: -16px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.boxes li {
+	position: absolute;
+	display: block;
+	background-color: #DEC1FF;
+  opacity: 0.8;
+	animation: animate 10s linear infinite;
+	top: -250px;
+}
+.boxes li:nth-child(1) {
+	left: 3%;
+	width: 96px;
+	height: 96px;
+  animation-delay: 2.9s;
+}
+.boxes li:nth-child(2) {
+	left: 8%;
+	width: 72px;
+	height: 72px;
+	animation-delay: 5.8s;
+  animation-duration: 11.1s;
+}
+.boxes li:nth-child(3) {
+	left: 27%;
+	width: 114px;
+	height: 114px;
+	animation-delay: 3.1s;
+}
+.boxes li:nth-child(4) {
+	left: 32%;
+	width: 271px;
+	height: 271px;
+  animation-duration: 19s
+}
+.boxes li:nth-child(5) {
+	left: 59%;
+	width: 139px;
+	height: 139px;
+  animation-delay: 1.4s;
+  animation-duration: 12.8s;
+}
+.boxes li:nth-child(6) {
+	left: 64%;
+	width: 101px;
+	height: 101px;
+	animation-delay: 6.5s;
+}
+.boxes li:nth-child(7) {
+	left: 75%;
+	width: 123px;
+	height: 123px;
+	animation-delay: 9.2s;
+}
+.boxes li:nth-child(8) {
+	left: 86%;
+	width: 84px;
+	height: 84px;
+	animation-delay: 7.2s;
+}
+.boxes li:nth-child(9) {
+	left: 91%;
+	width: 36px;
+	height: 36px;
+  animation-delay: 3.3s;
+  animation-duration: 8.4s;
+}
+@keyframes animate {
+	0% {
+		transform: translateY(0) rotate(0deg);
+	}
+	100% {
+		transform: translateY(1500px) rotate(360deg);
+	}
+}
+/* LOGOUT */
+.div_logout{
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: inline-flex;
+  width: 100px;
+  height: 100px;
+}
+.logout_text{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 66px;
+  margin-top: 40px;
+  font-size: 30px;
+  color: white;
+  transition: all 0.5s;
+  opacity: 0;
+}
+.div_logout:hover .logout_text{
+  margin-top: 95px;
+
+  opacity: 1;
+}
+.logout_icon{
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+.logout_icon:hover{
+  width: 100%;
+  height: 100%;
+}
+/* PROFILE DISPLAY */
+.div_main{
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: 290px;
+  background-color: #343633;
+  border-radius: 20px 20px 20px 20px;
+}
+.div_account_name{
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  width: 190px;
+  height: 40px;
+  background-color: #7D70BA;
+  border-radius: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: white;
+  border-width: 6px;
+}
+.account_name{
+  position: absolute;
+  margin-top: 3px;
+  left: 10px;
+  font-size: 30px;
+  color: white;
+}
+.account_name2{
+  position: absolute;
+  margin-top: 3px;
+  left: 11px;
+  font-size: 30px;
+  color: white;
+}
+.div_info{
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+}
+.info_icon{
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 75%;
+  height: 75%;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+.info_icon:hover{
+  width: 90%;
+  height: 90%;
+}
+.div_balance{
+  position: absolute;
+  top: 90px;
+  right: 26px;
+  width: 515px;
+  height: 150px;
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: #93867F;
+  border-width: 10px;
+}
+.balance{
+  position: relative;
+  left: 30px;
+  top: -70px;
+  font-size: 105px;
+  color: #93867F;
+}
+.div_info_balance{
+  position: absolute;
+  bottom: -200px;
+  right: 10px;
+  width: 238px;
+  height: 43px;
+  background-color: #DEC1FF;
+  border-radius: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: #7D70BA;
+  border-width: 6px;
+  opacity: 0;
+  transition: all 0.9s;
+}
+.info_balance{
+  position: absolute;
+  margin-top: 0px;
+  font-size: 19px;
+  color: #7D70BA;
+  text-align: center;
+}
+.div_info:hover .div_info_balance{
+  opacity: 0.9;
+}
+.div_pig{
+  position: absolute;
+  top: 125px;
+  left: 20px;
+  display: inline-flex;
+  width: 100px;
+  height: 100px;
+  background-color: #7D70BA;
+  border-radius: 35px 35px 35px 35px;
+  transition: all 0.1s;
+}
+.pig{
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 75%;
+  height: 75%;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+.div_pig:hover{
+  top: 130px;
+  left: 25px;
+  width: 90px;
+  height: 90px;
+}
+.div_pig:hover .pig{
+  width: 100%;
+  height: 100%;
+}
+/* GAMES MENU */
+.div_games{
+  position: absolute;
+  top: 550px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: 150px;
+  background-color: #343633;
+  border-radius: 70px 70px 70px 70px;
+}
