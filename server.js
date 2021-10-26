@@ -2,8 +2,6 @@ console.log('Starting economy web server');
 
 import express from "express"; //Call "Express" lib from node_modules
 
-import session from "express-session";
-
 import bodyParser from "body-parser";
 
 const app = express(); // App - express (When you are calling app it will call the express lib called from above)
@@ -24,25 +22,7 @@ const {
 
   port = 3000, //Port the server listens and send to
 
-  User_Session_Life = (1000 * 60 * 10), //10 min
-
-  Session_Name = 'sid',
-
-  Session_Secret = 'ILikeApples'
-
 } = process.env
-
-  app.use(session({
-    name: Session_Name,
-    resave: false,
-    saveUninitialized: false,
-    secret: Session_Secret,
-    cookie: {
-      maxAge: User_Session_Life,
-      sameSite: true,
-      secure: false
-    }
-  }));
 
 app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
@@ -50,21 +30,20 @@ app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
 }));
 
-
 //-----------^^^^^^^^^^------------ setup ----------------------------------------------------------------------------------
 
-app.use(express.static('Web-HTML-Public'));
+app.use(express.static('Public'));
 
-app.get("/", (req,res) => {
+app.get("/Home", (req,res) => {
 
-res.redirect('Login/Login.html');
-
-});
-
-app.get("*", (req,res) => { // Send error if unavaliable page is requested
-
-res.redirect('/Page_Not_Found/Page_Not_Found.html');
+res.sendFile(__dirname + '/Code/Html/User_Menu.html')
 
 });
+
+//app.get("*", (req,res) => { // Send error if unavaliable page is requested
+
+//res.redirect('/Page_Not_Found/Page_Not_Found.html');
+
+//});
 
 app.listen(port);

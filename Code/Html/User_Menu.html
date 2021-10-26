@@ -4,14 +4,12 @@
 
 <head>
 
-  <! remember when calling other scripts or files do it in head or body>
-  <link rel="stylesheet" type="text/css" href="../Web-HTML-Public/User_Menu.css"/>
+  <! Calls css/js or else files relative to server online server (Dont touch)>
+  <link rel="stylesheet" type="text/css" href="User_Menu/User_Menu.css"/>
+  <script src="User_Menu/User_Menu.js"></script>
 
   <! fonts>
   <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
-
-  <! Link to Js file>
-  <script src="User_Menu.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
@@ -35,7 +33,7 @@
 
   <div class="div_logout">
     <h2 class="logout_text"> logout </h2>
-    <img class="logout_icon" src="../All_Textures/Exit_Door.svg" alt="exit door icon logout" onclick="BACK_BUTTON()">
+    <img class="logout_icon" src="All_Textures/Exit_Door.svg" alt="exit door icon logout" onclick="BACK_BUTTON()">
   </div>
 
   <div class="div_main">
@@ -50,11 +48,11 @@
     </div>
 
     <div class="div_pig">
-      <img class="pig" src="../All_Textures/Piggy_Bank.svg" alt="piggy bank icon">
+      <img class="pig" src="All_Textures/Piggy_Bank.svg" alt="piggy bank icon">
     </div>
 
     <div class="div_info">
-      <img class="info_icon" src="../All_Textures/Info.svg" alt="info icon">
+      <img class="info_icon" src="All_Textures/Info.svg" alt="info icon">
       <div class="div_info_balance">
         <h2 class="info_balance"> This is how many Cook Dollars you currently have in your account</h2>
       </div>
