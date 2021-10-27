@@ -32,18 +32,38 @@ app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
 //-----------^^^^^^^^^^------------ setup ----------------------------------------------------------------------------------
 
-app.use(express.static('Public'));
+app.use("/Public", express.static('Public'));
 
-app.get("/Home", (req,res) => {
+app.get("/", (req,res) => { // Redirect to login
+
+res.redirect('/Login');
+
+});
+
+app.get("/Login", (req,res) => {
+
+res.sendFile(__dirname + '/Code/Html/Login.html')
+
+});
+
+app.get("/CreateAccount", (req,res) => {
+
+res.sendFile(__dirname + '/Code/Html/Create_Account.html')
+
+});
+
+app.get("/Home-Authenticated", (req,res) => {
 
 res.sendFile(__dirname + '/Code/Html/User_Menu.html')
 
 });
 
-//app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
-//res.redirect('/Page_Not_Found/Page_Not_Found.html');
 
-//});
+app.get("*", (req,res) => { // Send error if unavaliable page is requested
+
+res.sendFile(__dirname + '/Code/Html/Page_Not_Found.html')
+
+});
 
 app.listen(port);
