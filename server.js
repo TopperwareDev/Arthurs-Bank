@@ -1,6 +1,6 @@
-console.log('Starting economy web server');
-
 import express from "express"; //Call "Express" lib from node_modules
+
+import session from "express-session";
 
 import bodyParser from "body-parser";
 
@@ -13,8 +13,8 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log('This is the directory name: ' + __dirname);
-console.log('This is the file name: ' + __filename);
+//console.log('This is the directory name: ' + __dirname);
+//console.log('This is the file name: ' + __filename);
 
 // ----------------------------- importing lib to assign __filename and __dirname values
 
@@ -23,6 +23,9 @@ const {
   port = 3000, //Port the server listens and send to
 
 } = process.env
+
+console.log('You have started the server');
+console.log('The server is listening on port: ' + port);
 
 app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
@@ -46,6 +49,18 @@ res.sendFile(__dirname + '/Code/Html/Login.html')
 
 });
 
+app.post("/Login", (request,respond) => {
+
+const {USERNAME_FIELD, PASSWORD_FIELD} = request.body;
+
+//console.log('This is the password '  + USERNAME_FIELD + ' This is the passowrd ' + PASSWORD_FIELD);
+
+if(USERNAME_FIELD == "admin" && PASSWORD_FIELD == "1234")
+
+    respond.redirect('/Home-Authenticated')
+
+});
+
 app.get("/CreateAccount", (req,res) => {
 
 res.sendFile(__dirname + '/Code/Html/Create_Account.html')
@@ -57,8 +72,6 @@ app.get("/Home-Authenticated", (req,res) => {
 res.sendFile(__dirname + '/Code/Html/User_Menu.html')
 
 });
-
-
 
 app.get("*", (req,res) => { // Send error if unavaliable page is requested
 
