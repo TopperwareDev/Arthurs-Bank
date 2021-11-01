@@ -19,25 +19,58 @@ const __dirname = dirname(__filename);
 // ----------------------------- importing lib to assign __filename and __dirname values
 
 const {
-
+  //port server listens on
   port = 3000, //Port the server listens and send to
+  //name for cookie
+  cookie_Name = 'verification-sid',
+  cookie_Time_Limit = 1000* 60 * 60, // one hour in ms
+  secret_Code = 'thefishisascaryonedummies/.,,!@^#&*()'
 
 } = process.env
 
-console.log('You have started the server');
-console.log('The server is listening on port: ' + port);
-
 app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 
-  extended: true
+  extended: true,
 
 }));
+
+app.use(session({ // Set up cookie
+  //custom name for cookies
+  name: cookie_Name,
+  resave: false,
+  saveUninitalized: false, //do not store cookies with no data
+  secret: secret_Code, // encryption
+    cookie: {
+      // Time befor cookie exprires
+      maxAge: cookie_Time_Limit,
+      // Server will only read cookies from the same site
+      sameSite: true,
+      secure: false, // change when building final version -----
+
+    }
+}));
+
+const users = [
+  {id: 1, username: 'arthur', password: 'arthur'},
+  {id: 2, username: 'test', password: 'test'},
+  {id: 3, username: 'admin', password: 'admin'}
+]
+
+
+
+console.log('You have started the server');
+console.log('The server is listening on port: ' + port);
 
 //-----------^^^^^^^^^^------------ setup ----------------------------------------------------------------------------------
 
 app.use("/Public", express.static('Public'));
 
 app.get("/", (req,res) => { // Redirect to login
+
+    req.session.name = 'hahaha';
+
+console.log(req.session);
+    console.log('reading cookie: ' + req.session.name);
 
 res.redirect('/Login');
 
