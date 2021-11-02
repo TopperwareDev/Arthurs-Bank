@@ -23,8 +23,8 @@ const {
   port = 3000, //Port the server listens and send to
   //name for cookie
   cookie_Name = 'verification-sid',
-  cookie_Time_Limit = 1000* 60 * 60, // one hour in ms
-  secret_Code = 'thefishisascaryonedummies/.,,!@^#&*()'
+  cookie_Time_Limit = 1000 * 60 * 60, // one hour in ms
+  secret_Code = 'happy'
 
 } = process.env
 
@@ -37,16 +37,16 @@ app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
 app.use(session({ // Set up cookie
   //custom name for cookies
   name: cookie_Name,
-  resave: false,
-  saveUninitalized: false, //do not store cookies with no data
+  resave: true,
+  saveUninitalized: true, //do not store cookies with no data
   secret: secret_Code, // encryption
+  store: sessionStore,
     cookie: {
       // Time befor cookie exprires
       maxAge: cookie_Time_Limit,
       // Server will only read cookies from the same site
-      sameSite: true,
-      secure: false, // change when building final version -----
-
+      //sameSite: true,
+      secure: false // change when building final version -----
     }
 }));
 
@@ -59,13 +59,13 @@ app.use("/Public", express.static('Public'));
 
 app.get("/", (req,res) => { // Redirect to login
 
-    req.session.name = 'hahaha'; //write to cookie
+    //req.session.nametest = 'arthussession';
 
     console.log(req.session);
 
-    console.log('reading cookie: ' + req.session.name); // read to cookie
+    console.log('reading cookie: ' + req.session.nametest); // read to cookie
 
-res.redirect('/Login');
+//res.redirect('/Login');
 
 });
 
@@ -83,7 +83,7 @@ const {USERNAME_FIELD, PASSWORD_FIELD} = request.body;
 
 if(USERNAME_FIELD == "admin" && PASSWORD_FIELD == "1234")
 
-    respond.redirect('/Home-Authenticated')
+    respond.redirect('/Home')
 
 });
 
