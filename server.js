@@ -93,7 +93,7 @@ res.sendFile(__dirname + '/Code/Html/Create_Account.html')
 
 });
 
-app.get("/Home-Authenticated", (req,res) => {
+app.get("/Home", (req,res) => {
 
 res.sendFile(__dirname + '/Code/Html/User_Menu.html')
 
