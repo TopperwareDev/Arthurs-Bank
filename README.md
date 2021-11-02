@@ -1,2 +1,13 @@
 # Arthurs-Bank
-This is a project for economy and a CAS project. The goal is to create a full stack web site, where users can login, deposit and receive, gamble, and play with their money. Any one who wants to contribute is free to do so just create a pull request and we will more on from there. 
+The Arthur bank website, is created by Arthur, Lang, and eloy because we all share intrestes in coding and developing software. 
+The goal of this project is to create a website where ecnomy students can convert their cook dolares into "Arthur's"(our digital currency). 
+As the users have converted their modey into our digital currency, users will be able to participate in many games such as, lottery, blackjack, spinner, and many more to come. 
+
+We are building our website with express, and node js, in the hopes of learning the how to build well structured websites.
+
+Roles
+Arthur - Backend dev
+Lang - Front end
+Eloy - Still figuring out the bacics
+
+If you come accross -------- contue
