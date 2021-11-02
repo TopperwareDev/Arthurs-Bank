@@ -50,14 +50,6 @@ app.use(session({ // Set up cookie
     }
 }));
 
-const users = [
-  {id: 1, username: 'arthur', password: 'arthur'},
-  {id: 2, username: 'test', password: 'test'},
-  {id: 3, username: 'admin', password: 'admin'}
-]
-
-
-
 console.log('You have started the server');
 console.log('The server is listening on port: ' + port);
 
@@ -67,10 +59,11 @@ app.use("/Public", express.static('Public'));
 
 app.get("/", (req,res) => { // Redirect to login
 
-    req.session.name = 'hahaha';
+    req.session.name = 'hahaha'; //write to cookie
 
-console.log(req.session);
-    console.log('reading cookie: ' + req.session.name);
+    console.log(req.session);
+
+    console.log('reading cookie: ' + req.session.name); // read to cookie
 
 res.redirect('/Login');
 
