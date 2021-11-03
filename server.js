@@ -1,18 +1,26 @@
-import express from "express"; //Call "Express" lib from node_modules
+//import express from "express"; //Call "Express" lib from node_modules
+const express = require("express");
 
-import session from "express-session";
+//import bodyParser from "body-parser";
+const bodyParser = require("body-parser");
 
-import bodyParser from "body-parser";
+//import cookieParser from "cookie-parser";
+const cookieParser = require("cookie-parser");
+
+//import Handler from "./Code/NodeJavaScript/Handler.js";
+//var myFunctions = require("./Code/NodeJavaScript/Handler.js")
 
 const app = express(); // App - express (When you are calling app it will call the express lib called from above)
 
 // -----------------------------
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+//import { fileURLToPath } from 'url';
+const { fileURLToPath } = require('url');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+//import { dirname } from 'path';
+const { dirname } = require('path');
 
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = dirname(__filename);
 //console.log('This is the directory name: ' + __dirname);
 //console.log('This is the file name: ' + __filename);
 
@@ -24,50 +32,20 @@ const {
   //name for cookie
   cookie_Name = 'verification-sid',
   cookie_Time_Limit = 1000 * 60 * 60, // one hour in ms
-  secret_Code = 'happy'
+  key = 'happy'
 
 } = process.env
 
-app.use(bodyParser.urlencoded({ //to be able to accses sent forms from client
+app.use(bodyParser.urlencoded({ extended: true })); //to be able to accses sent forms from client
+app.use(cookieParser());
 
-  extended: true,
-
-}));
-
-app.use(session({ // Set up cookie
-  //custom name for cookies
-  name: cookie_Name,
-  resave: true,
-  saveUninitalized: true, //do not store cookies with no data
-  secret: secret_Code, // encryption
-  store: sessionStore,
-    cookie: {
-      // Time befor cookie exprires
-      maxAge: cookie_Time_Limit,
-      // Server will only read cookies from the same site
-      //sameSite: true,
-      secure: false // change when building final version -----
-    }
-}));
-
-console.log('You have started the server');
-console.log('The server is listening on port: ' + port);
-
-//-----------^^^^^^^^^^------------ setup ----------------------------------------------------------------------------------
-
+//Make Public folder accsesable to the public
 app.use("/Public", express.static('Public'));
 
-app.get("/", (req,res) => { // Redirect to login
-
-    //req.session.nametest = 'arthussession';
-
-    console.log(req.session);
-
-    console.log('reading cookie: ' + req.session.nametest); // read to cookie
-
-//res.redirect('/Login');
-
-});
+//--//
+//res.clearCookie('name'); // clear cookie
+//res.cookie('name', 'text'); //writing cookie
+//req.cookies.name
 
 app.get("/Login", (req,res) => {
 
@@ -104,5 +82,8 @@ app.get("*", (req,res) => { // Send error if unavaliable page is requested
 res.sendFile(__dirname + '/Code/Html/Page_Not_Found.html')
 
 });
+
+//myFunctions.method();
+require('./Code/NodeJavaScript/Handler.js')(app);
 
 app.listen(port);

@@ -13,3 +13,6 @@ Eloy - Still figuring out the bacics
 If you come accross -------- contue
 
 start server: nodemon server.js
+
+
+"type": "module",
