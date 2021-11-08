@@ -14,9 +14,6 @@ If you come accross -------- contue
 
 start server: nodemon server.js
 
-
-"type": "module",
-
 res.clearCookie('name'); // clear cookie
 res.cookie('name', 'text'); //writing cookie
 req.cookies.name // get cookie value from name
