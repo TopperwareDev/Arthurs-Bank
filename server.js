@@ -7,12 +7,4 @@ const app = express();
 const { fileURLToPath } = require('url');
 const { dirname } = require('path');
 
-//Pages -----------------------
-const Login = require('./Pages/Login')
-const CreateAccount = require('./Pages/CreateAccount')
-const UserMenu = require('./Pages/UserMenu')
-
-app.use(Login);
-app.use(CreateAccount);
-app.use(UserMenu);
-//Pages -----------------------
+app.use(web_requests);

@@ -1,100 +1,116 @@
-body{
+body {
   background-color: #7D70BA;
 }
-h1{
+
+h1 {
   position: relative;
   font-family: 'Gemunu Libre', sans-serif;
   font-size: 60px;
   color: white;
   text-align: center;
 }
-h2{
+
+h2 {
   font-family: 'Gemunu Libre', sans-serif;
 }
+
 /* BACKGROUND ANIMATION */
 .boxes {
-	position: absolute;
-	top: -16px;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+
 .boxes li {
-	position: absolute;
-	display: block;
-	background-color: #DEC1FF;
+  position: absolute;
+  display: block;
+  background-color: #DEC1FF;
   opacity: 0.8;
-	animation: animate 10s linear infinite;
-	top: -250px;
+  animation: animate 10s linear infinite;
+  top: -250px;
 }
+
 .boxes li:nth-child(1) {
-	left: 3%;
-	width: 96px;
-	height: 96px;
+  left: 3%;
+  width: 96px;
+  height: 96px;
   animation-delay: 2.9s;
 }
+
 .boxes li:nth-child(2) {
-	left: 8%;
-	width: 72px;
-	height: 72px;
-	animation-delay: 5.8s;
+  left: 8%;
+  width: 72px;
+  height: 72px;
+  animation-delay: 5.8s;
   animation-duration: 11.1s;
 }
+
 .boxes li:nth-child(3) {
-	left: 27%;
-	width: 114px;
-	height: 114px;
-	animation-delay: 3.1s;
+  left: 27%;
+  width: 114px;
+  height: 114px;
+  animation-delay: 3.1s;
 }
+
 .boxes li:nth-child(4) {
-	left: 32%;
-	width: 271px;
-	height: 271px;
+  left: 32%;
+  width: 271px;
+  height: 271px;
   animation-duration: 19s
 }
+
 .boxes li:nth-child(5) {
-	left: 59%;
-	width: 139px;
-	height: 139px;
+  left: 59%;
+  width: 139px;
+  height: 139px;
   animation-delay: 1.4s;
   animation-duration: 12.8s;
 }
+
 .boxes li:nth-child(6) {
-	left: 64%;
-	width: 101px;
-	height: 101px;
-	animation-delay: 6.5s;
+  left: 64%;
+  width: 101px;
+  height: 101px;
+  animation-delay: 6.5s;
 }
+
 .boxes li:nth-child(7) {
-	left: 75%;
-	width: 123px;
-	height: 123px;
-	animation-delay: 9.2s;
+  left: 75%;
+  width: 123px;
+  height: 123px;
+  animation-delay: 9.2s;
 }
+
 .boxes li:nth-child(8) {
-	left: 86%;
-	width: 84px;
-	height: 84px;
-	animation-delay: 7.2s;
+  left: 86%;
+  width: 84px;
+  height: 84px;
+  animation-delay: 7.2s;
 }
+
 .boxes li:nth-child(9) {
-	left: 91%;
-	width: 36px;
-	height: 36px;
+  left: 91%;
+  width: 36px;
+  height: 36px;
   animation-delay: 3.3s;
   animation-duration: 8.4s;
 }
+
 @keyframes animate {
-	0% {
-		transform: translateY(0) rotate(0deg);
-	}
-	100% {
-		transform: translateY(1500px) rotate(360deg);
-	}
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(1500px) rotate(360deg);
+  }
 }
+
 /* LOGOUT */
-.div_logout{
+.div_logout {
   position: absolute;
   top: 10px;
   right: 0;
@@ -102,7 +118,8 @@ h2{
   width: 100px;
   height: 100px;
 }
-.logout_text{
+
+.logout_text {
   position: absolute;
   left: 0;
   right: 0;
@@ -115,12 +132,13 @@ h2{
   transition: all 0.5s;
   opacity: 0;
 }
-.div_logout:hover .logout_text{
-  margin-top: 95px;
 
+.div_logout:hover .logout_text {
+  margin-top: 95px;
   opacity: 1;
 }
-.logout_icon{
+
+.logout_icon {
   position: absolute;
   display: inline-flex;
   left: 0;
@@ -136,12 +154,14 @@ h2{
   cursor: pointer;
   transition: all 0.15s ease-out;
 }
-.logout_icon:hover{
+
+.logout_icon:hover {
   width: 100%;
   height: 100%;
 }
+
 /* PROFILE DISPLAY */
-.div_main{
+.div_main {
   position: absolute;
   top: 150px;
   left: 0;
@@ -153,7 +173,8 @@ h2{
   background-color: #343633;
   border-radius: 20px 20px 20px 20px;
 }
-.div_account_name{
+
+.div_account_name {
   position: absolute;
   top: 16px;
   left: 20px;
@@ -165,21 +186,24 @@ h2{
   border-color: white;
   border-width: 6px;
 }
-.account_name{
+
+.account_name {
   position: absolute;
   margin-top: 3px;
   left: 10px;
   font-size: 30px;
   color: white;
 }
-.account_name2{
+
+.account_name2 {
   position: absolute;
   margin-top: 3px;
   left: 11px;
   font-size: 30px;
   color: white;
 }
-.div_info{
+
+.div_info {
   position: absolute;
   top: 1px;
   right: 2px;
@@ -187,7 +211,8 @@ h2{
   width: 80px;
   height: 80px;
 }
-.info_icon{
+
+.info_icon {
   position: absolute;
   display: inline-flex;
   left: 0;
@@ -203,11 +228,13 @@ h2{
   cursor: pointer;
   transition: all 0.15s ease-out;
 }
-.info_icon:hover{
+
+.info_icon:hover {
   width: 90%;
   height: 90%;
 }
-.div_balance{
+
+.div_balance {
   position: absolute;
   top: 90px;
   right: 26px;
@@ -219,14 +246,16 @@ h2{
   border-color: #93867F;
   border-width: 10px;
 }
-.balance{
+
+.balance {
   position: relative;
   left: 30px;
   top: -70px;
   font-size: 105px;
   color: #93867F;
 }
-.div_info_balance{
+
+.div_info_balance {
   position: absolute;
   bottom: -200px;
   right: 10px;
@@ -240,17 +269,20 @@ h2{
   opacity: 0;
   transition: all 0.9s;
 }
-.info_balance{
+
+.info_balance {
   position: absolute;
   margin-top: 0px;
   font-size: 19px;
   color: #7D70BA;
   text-align: center;
 }
-.div_info:hover .div_info_balance{
+
+.div_info:hover .div_info_balance {
   opacity: 0.9;
 }
-.div_pig{
+
+.div_pig {
   position: absolute;
   top: 125px;
   left: 20px;
@@ -261,7 +293,8 @@ h2{
   border-radius: 35px 35px 35px 35px;
   transition: all 0.1s;
 }
-.pig{
+
+.pig {
   position: absolute;
   display: inline-flex;
   left: 0;
@@ -277,18 +310,21 @@ h2{
   cursor: pointer;
   transition: all 0.15s ease-out;
 }
-.div_pig:hover{
+
+.div_pig:hover {
   top: 130px;
   left: 25px;
   width: 90px;
   height: 90px;
 }
-.div_pig:hover .pig{
+
+.div_pig:hover .pig {
   width: 100%;
   height: 100%;
 }
+
 /* GAMES MENU */
-.div_games{
+.div_games {
   position: absolute;
   top: 550px;
   left: 0;
