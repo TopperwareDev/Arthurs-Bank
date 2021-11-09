@@ -4,7 +4,7 @@ const prompt = require('prompt-sync')({sigint: true});
 mechanism.hello();
 
 let name = prompt("message: ");
-console.log(`hello ${name}`);
+console.log("hello i am cool : " + name);
 
 /*
 function encrypt (message, key) {
