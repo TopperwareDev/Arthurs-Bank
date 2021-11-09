@@ -6,9 +6,9 @@ const { dirname } = require('path');
 
 const app = express();
 
-var Login = require('./Code/Login')
-var CreateAccount = require('./Code/CreateAccount')
-var UserMenu = require('./Code/UserMenu')
+var Login = require('./Pages/Login')
+var CreateAccount = require('./Pages/CreateAccount')
+var UserMenu = require('./Pages/UserMenu')
 
 app.use(Login);
 app.use(CreateAccount);
