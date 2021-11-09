@@ -1,28 +1,18 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");
+const mySql_Lib_C = require("./Custom_Modules/mysql"); //database manager module
+const web_requests = require("./Custom_Modules/web_requests"); //request handlet module
+
+const app = express();
 
 const { fileURLToPath } = require('url');
 const { dirname } = require('path');
 
-const app = express();
-
-var Login = require('./Pages/Login')
-var CreateAccount = require('./Pages/CreateAccount')
-var UserMenu = require('./Pages/UserMenu')
+//Pages -----------------------
+const Login = require('./Pages/Login')
+const CreateAccount = require('./Pages/CreateAccount')
+const UserMenu = require('./Pages/UserMenu')
 
 app.use(Login);
 app.use(CreateAccount);
 app.use(UserMenu);
-
-app.use(cookieParser());
-
-app.use("/Public", express.static('Public')); // Make public folder public
-
-app.get("/", (req,res) => { // Redirect to login
-res.redirect('/Login')
-});
-app.get("*", (req,res) => { // Redirect to PagenotFound if request invalid page
-res.sendFile(__dirname + '/Public/Page_Not_Found/Page_Not_Found.html')
-});
-
-app.listen(3000); // Which port server listens to
+//Pages -----------------------
