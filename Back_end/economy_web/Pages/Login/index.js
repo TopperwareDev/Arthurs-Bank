@@ -5,9 +5,12 @@ var app = module.exports = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+
+
 app.get("/Login", (req,res) => {
 
 res.sendFile(__dirname + '/Login.html')
+console.log('The login was requested');
 
 });
 
@@ -22,3 +25,5 @@ if(USERNAME_FIELD == "admin" && PASSWORD_FIELD == "1234")
     respond.redirect('/Home')
 
 });
+
+module.exports = app;
