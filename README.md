@@ -14,6 +14,13 @@ remember to unintall command line reader for more efficient app
 
 If you come accross -------- contue
 
+killall -9 node - kill all node processes incase server is not starting because another program is already using another port
+
+sudo lsof -i :3000 - will give list of all programs listening to port 3000 <- change this to listen to other ports
+
+sudo lsof -i - to view all open ports
+
+Code to remember for later - -
 start server: nodemon server.js
 
 res.clearCookie('name'); // clear cookie
