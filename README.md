@@ -10,6 +10,8 @@ Arthur - Backend dev
 Lang - Front end
 Eloy - Still figuring out the bacics
 
+remember to unintall command line reader for more efficient app
+
 If you come accross -------- contue
 
 start server: nodemon server.js
