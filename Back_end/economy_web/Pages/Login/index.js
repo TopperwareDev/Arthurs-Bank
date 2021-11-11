@@ -5,12 +5,9 @@ var app = module.exports = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-
-
 app.get("/Login", (req,res) => {
 
 res.sendFile(__dirname + '/Login.html')
-console.log('The login was requested');
 
 });
 

@@ -25,7 +25,6 @@ app.use("/Public", express.static('Public'));
 
 app.get("/", (req, res) => { // Redirect to login
     res.redirect('/Login')
-    console.log("requested login");
   });
 
 app.get("*", (req,res) => { // Redirect to PagenotFound if request invalid page
