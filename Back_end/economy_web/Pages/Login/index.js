@@ -5,30 +5,41 @@ const app = module.exports = express();
 
 const path = require('path');
 
-const db = require(path.resolve('Back_end/mysql')); //get data base module
+const db = require(path.resolve('Back_end/mysql')); //get Mysql module
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+//When user requests /Login
 app.get("/Login", (req,res) => {
 
 res.sendFile(__dirname + '/Login.html')
 
 });
 
-db.readTable('WEB_LOGIN', 2); //call function to read db into 2d array
-
+//When request is sent to server /Login
 app.post("/Login", (request,respond) => {
 
 const {USERNAME_FIELD, PASSWORD_FIELD} = request.body;
 
-//db.readTable('WEB_LOGIN', 2); //call function to read db into 2d array
+db.verifyLogin('WEB_LOGIN', USERNAME_FIELD, PASSWORD_FIELD, sendPage); 
 
-//console.log('This is the password '  + USERNAME_FIELD + ' This is the passowrd ' + PASSWORD_FIELD);
+function sendPage(validation){
 
-if(USERNAME_FIELD == "admin" && PASSWORD_FIELD == "1234")
+    if(validation){
+        //first create verification cookie
 
-    respond.redirect('/Home')
+        //redirect to home page
+        respond.redirect('/Home')
 
+        return;
+    }else{
+
+        //display incorrect passoword or username message
+        console.log("password or username inccorect");
+
+    }
+
+}
 });
 
 module.exports = app;

@@ -1,5 +1,5 @@
 function BACK_BUTTON(){
 
-	window.location.href = '../Login/Login.html'; //move to login page
+	window.location.href = '/Login'; //move to login page
 
 }
