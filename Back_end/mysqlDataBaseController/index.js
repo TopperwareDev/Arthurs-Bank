@@ -59,8 +59,6 @@ function match(table_name, collum, value, callback){
      //need to change so match work on any row name ---------------------------
      if(result[row].USERNAME == value){
 
-        console.log("Match");
-
         callback(true);
         return;
       }
@@ -71,47 +69,62 @@ function match(table_name, collum, value, callback){
 
 }
 
-function createAccount (table_name, username, password, password_Repeat, callback) {
+function createAccount (table_name, username, password, password_Repeat, email, callback) {
    /*
     if return is nothing, then all went well and new account is saved
     if return is 1 -> username is unavaliable
     if return is 2 -> password is unavaliable
+    if return is 3 -> username is too short
+    if return is 4 -> password is too short
    */
 
   //check is username is allowed
+  if(username.length < 4){
 
+    callback(3);
+    return;
 
-  // check if username is taken
-  match("WEB_LOGIN", 'USERNAME', username, a);
+  }else{
+// check if username is taken
+match("WEB_LOGIN", 'USERNAME', username, a);
 
-  function a(dupecheck){
+function a(dupecheck){
 
-    if(dupecheck){
+  console.log(dupecheck);
 
-      //username is taken
-      callback(1);
+  if(dupecheck){
+
+    //username is taken
+    callback(1);
+    return;
+     
+  }else{
+
+    //check is 'password' is valid
+    if(password.length < 4){
+
+      callback(4);
       return;
-       
+
+    }else if(!(password == password_Repeat)){
+
+      callback(2);
+      return;
+
     }else{
-  
-      console.log('The username was not taken');
-
-      //check is 'password' is valid
-
-      if(password == password_Repeat){
-
-        callback(2);
-        return;
-
-      }else{
+    
       //enter new account into sql database
+    var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "')";
 
+    con.query(sql);
 
-      }
-  
+    console.log("New account created: " + username);
+
     }
 
-  } 
+  }
+} 
+}  
 }
 
 

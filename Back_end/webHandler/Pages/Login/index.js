@@ -5,7 +5,8 @@ const app = module.exports = express();
 
 const path = require('path');
 
-const db = require(path.resolve('Back_end/mysql')); //get Mysql module
+const db = require(path.resolve('Back_end/mysqlDataBaseController')); //get Mysql module
+const authentication = require(path.resolve('Back_end/authentication')); //get Authenticator module
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
@@ -21,25 +22,26 @@ app.post("/Login", (request,respond) => {
 
 const {USERNAME_FIELD, PASSWORD_FIELD} = request.body;
 
-db.verifyLogin('WEB_LOGIN', USERNAME_FIELD, PASSWORD_FIELD, sendPage); 
-
-function sendPage(validation){
-
+db.verifyLogin('WEB_LOGIN', USERNAME_FIELD, PASSWORD_FIELD, (validation) =>{
+    
     if(validation){
         //first create verification cookie
+        authentication.addAuthenticated(USERNAME_FIELD, respond,() => {
+        
+            //redirect to home page
+            respond.redirect('/Home')
 
-        //redirect to home page
-        respond.redirect('/Home')
+            return;
 
-        return;
+        });
     }else{
 
         //display incorrect passoword or username message
         console.log("password or username inccorect");
 
     }
+}); 
 
-}
 });
 
 module.exports = app;
