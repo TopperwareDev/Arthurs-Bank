@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<title>Arthur Bank Login</title>
+
+<head>
+
+  <! Calls css/js or else files relative to server online server (Dont touch)>
+  <link rel="stylesheet" type="text/css" href="/Public/Login/Login.css"/>
+  <script src="/Public/Login/Login.js"></script>
+
+  <! page logo>
+  <link rel='icon' href='/Public/Icons/lock.ico' class='js-favicon'>
+
+  <! fonts>
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <h1 class="text">Login</h1>
+
+  <div class="LOGIN_FORM">
+    <form action="/Login" method="post">
+
+      <h2 class="LOGIN_FORM_TEXT">Username:</h2>
+      <input type="text" name="USERNAME_FIELD" placeholder="Username" required>
+
+      <h2 class="LOGIN_FORM_TEXT">Password:</h2>
+      <input type="password" name="PASSWORD_FIELD" placeholder="Passowrd" required>
+
+      <button type="submit" class="LOGIN_BUTTON">Login</button>
+
+    </form>
+
+    <button type="button" name="CREATE_ACCOUNT_BUTTON" class="CREATE_ACCOUNT_BUTTON" onclick="CREATE_NEW_ACCOUNT_BUTTON()">Create Acount</button>
+    
+  </div>
+
+  <div class="Wave waveSVG"></div>
+
+</body>

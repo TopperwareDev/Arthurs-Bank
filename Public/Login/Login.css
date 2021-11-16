@@ -1,6 +1,7 @@
 body {
 
   background-color: #7D70BA;
+  margin: 0px;
 
 }
 
@@ -65,5 +66,22 @@ h1{
   color: white;
   font-family: 'Gemunu Libre', sans-serif;
   transform: translate(10px, 0px);
+
+}
+
+.Wave{
+aspect-ratio: 850/675;
+width: 100%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+position: absolute;
+z-index: -1;
+bottom: 0px;
+}
+
+.waveSVG{
+
+  background-image: url('/Public/SVG/waves.svg');
 
 }

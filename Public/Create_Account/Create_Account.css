@@ -1,6 +1,7 @@
 body {
 
 background-color: #7D70BA;
+margin: 0px;
 
 }
 
@@ -15,7 +16,7 @@ h1{
 .CREATE_ACCOUNT_FORM{
 
   width: 500px;
-  height: 420px;
+  height: 530px;
   top: 100px;
   left: 50%;
   transform: translate(-50%);
@@ -69,3 +70,20 @@ h1{
   font-size: 15px;
 
 }
+
+.Wave{
+  aspect-ratio: 850/675;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  bottom: 0px;
+  }
+  
+  .waveSVG{
+  
+    background-image: url('/Public/SVG/waves.svg');
+  
+  }
