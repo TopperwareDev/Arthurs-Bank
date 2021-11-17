@@ -14,7 +14,7 @@ con.connect(function(error) {
   if(!!error) {
     console.log("failed - Database is most likely down");
   }else{
-    console.log('Connection to database succsesfull');
+    console.log('Database Connection: good');
   }
 });
 
@@ -32,8 +32,6 @@ function verifyLogin(table_name, username, password, callback){
     for(row = 0; row != result.length; ++row){
     
       if(result[row].USERNAME == username && result[row].PASSWORD == password){
-
-        console.log("Login succsesfull returning true");
         
         callback(true);
         return;

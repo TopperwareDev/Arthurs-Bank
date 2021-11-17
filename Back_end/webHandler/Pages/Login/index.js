@@ -11,10 +11,21 @@ const authentication = require(path.resolve('Back_end/authentication')); //get A
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 //When user requests /Login
-app.get("/Login", (req,res) => {
+app.get("/Login", (request,respond) => {
 
-res.sendFile(__dirname + '/Login.html')
+    authentication.validateCookie(request, (validated) =>{ //if the user is validated and visits login redirect to homepage
 
+        if(validated){
+
+            respond.redirect('/home');
+
+        }else{
+
+            respond.sendFile(__dirname + '/Login.html');
+
+        }
+
+    });
 });
 
 //When request is sent to server /Login
@@ -26,7 +37,7 @@ db.verifyLogin('WEB_LOGIN', USERNAME_FIELD, PASSWORD_FIELD, (validation) =>{
     
     if(validation){
         //first create verification cookie
-        authentication.addAuthenticated(USERNAME_FIELD, respond,() => {
+        authentication.Authenticate(USERNAME_FIELD, respond,() => {
         
             //redirect to home page
             respond.redirect('/Home')

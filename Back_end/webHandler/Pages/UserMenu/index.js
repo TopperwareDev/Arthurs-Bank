@@ -10,9 +10,19 @@ const authentication = require(path.resolve('Back_end/authentication')); //get A
 
 app.get("/Home", (request,respond) => {
     
-    authentication.validateCookie(request, () =>{
+    authentication.validateCookie(request, (validated) =>{
 
-        respond.sendFile(__dirname + '/User_Menu.html');
+        if(validated){
+
+            respond.sendFile(__dirname + '/User_Menu.html');
+
+        }else{
+
+            console.log("A unvalidated user is trying to accses a secure page - Redirecting to homepage");
+            respond.redirect('/Login');
+
+        }
+        
 
     });
     

@@ -3,51 +3,68 @@
 //Standard name for Autentication cookie is : "Authentication"
 
 const express = require('express');
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 
 const path = require('path');
 
 const app = express();
-app.use(cookieParser());
+//app.use(cookieParser());
 
 const AuthedUsers = require("./lib/Authedusers");
 const frvcipher = require(path.resolve('Back_end/frvcipher'));
 
 const cookieConfigure = {
     
-    maxAge: 1000 * 60 * 30 //Expires after 30 min
+    maxAge: 1000 * 60 * 10, //Expires after 30 min
+    sameSite: 'none'
 
 };
 
-function addAuthenticated(username, respond, callback){
+function Authenticate(username, respond, callback){
 
     //store authed user with encryption key
     AuthedUsers.AddAuthedUser(username, frvcipher);
 
-    //encrypt cookie with key and save cookie on client
+    //get key corrsponing with username and save encrypted usename in cookie
+
+    respond.cookie('Authentication', username, cookieConfigure);
     
-    console.log("This is the encrypted username " + frvcipher.encrypt(username, AuthedUsers.GetAuthedUserKey(username)));
-    
-    //respond.cookie('Authentication', frvcipher.encrypt(username, AuthedUsers.GetAuthedUserKey(username, cookieConfigure)));
-    respond.cookie('Authentication', 'I┘░И');
     callback();
 }
 
 function validateCookie(request, callback){
 
-    //console.log(request.cookies.Authentication);
+    AuthedUsers.getCookie('Authentication', request, (cookie) => {
 
-    username = '1234';
+        if(cookie){
+            AuthedUsers.encryptedUsernameCheck(cookie, frvcipher, (exists) =>{
 
-    console.log("This is the decrypted username " + frvcipher.decrypt(request.cookies.Authentication, AuthedUsers.GetAuthedUserKey(username)));
+                if(exists){
+                    
+                    callback(true);
+                    return;
+        
+                }else{
 
-    callback();
+                    callback(false);
+                    return;
 
+                }
+        
+            });
+
+        }else{
+
+            callback(false);
+            return;
+
+        }
+    });
 }
 
 module.exports = {
 
-    addAuthenticated,
+    Authenticate,
     validateCookie
 
 };
