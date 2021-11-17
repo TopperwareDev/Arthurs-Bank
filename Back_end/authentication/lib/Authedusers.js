@@ -1,9 +1,9 @@
 var AuthedUsers = new Array();
 
-function AddAuthedUser(username){
+function AddAuthedUser(username, frvcipher){
 
 //generate encryption key
-key = "yes";
+key = frvcipher.genkey();
 
 //save username + Key "for now no key will be used"
 AuthedUsers.push(username + " " + key);
@@ -33,6 +33,7 @@ function GetAuthedUserKey(username){
         }
     }
 }
+//Make method to dycrypt and return username
 
 module.exports = {
 

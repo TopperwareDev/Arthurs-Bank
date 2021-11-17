@@ -6,6 +6,9 @@ cookie = poo.encrypt(x, 78);
 console.log(cookie);
 console.log(poo.decrypt(cookie, 78));*/
 
+
+//Lang fix cyper to use new chars its called "Allowed"
+
 function genkey (){
     key = Math.floor(Math.random() * (310));
     return key;
