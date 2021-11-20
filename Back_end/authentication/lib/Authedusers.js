@@ -10,7 +10,7 @@ RemoveAuthedUser(username);
 
 AuthedUsers.push(username + " " + key);
 
-console.log(AuthedUsers);
+//console.log(AuthedUsers);
 
 }
 
@@ -67,12 +67,7 @@ function encryptedUsernameCheck(encyptedUsername, frvcipher, callback){
 function getCookie(CookieName, request, callback){
 
 //Get all cookies
-//allCookies = request.cookies;
-
 var allCookies = request.cookies;
-
-console.log(allCookies);
-console.log(request.cookies);
 
 if(allCookies == undefined){ // if no cookies exist
 
@@ -85,7 +80,7 @@ if(allCookies == undefined){ // if no cookies exist
 
     cookie = request.cookies[CookieName];
     
-    console.log(cookie);
+    //console.log(cookie);
 
     callback(cookie);
     return;
@@ -93,7 +88,6 @@ if(allCookies == undefined){ // if no cookies exist
 }
 
 }
-
 
 module.exports = {
 

@@ -18,7 +18,6 @@ app.get("/Home", (request,respond) => {
 
         }else{
 
-            console.log("A unvalidated user is trying to accses a secure page - Redirecting to homepage");
             respond.redirect('/Login');
 
         }

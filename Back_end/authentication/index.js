@@ -15,8 +15,8 @@ const frvcipher = require(path.resolve('Back_end/frvcipher'));
 
 const cookieConfigure = {
     
-    maxAge: 1000 * 60 * 10, //Expires after 30 min
-    sameSite: 'none'
+    maxAge: 1000 * 60 * 10 //Expires after 10 min
+    //sameSite: 'none'
 
 };
 
@@ -46,6 +46,7 @@ function validateCookie(request, callback){
         
                 }else{
 
+                    console.log("A unvalidated user is trying to accses a secure page - Redirecting to homepage");
                     callback(false);
                     return;
 
