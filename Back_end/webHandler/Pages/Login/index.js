@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //When user requests /Login
 app.get("/Login", (request,respond) => {
 
+    /*
     authentication.validateCookie(request, (validated) =>{ //if the user is validated and visits login redirect to homepage
 
         if(validated){
@@ -26,6 +27,9 @@ app.get("/Login", (request,respond) => {
         }
 
     });
+    */
+
+    respond.sendFile(__dirname + '/Login.html');
 });
 
 //When request is sent to server /Login
