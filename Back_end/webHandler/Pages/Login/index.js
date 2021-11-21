@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const express = require('express');
 const app = module.exports = express();
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 const path = require('path');
 
 const db = require(path.resolve('Back_end/mysqlDataBaseController')); //get Mysql module
@@ -29,7 +32,7 @@ app.get("/Login", (request,respond) => {
     });
     */
 
-    respond.sendFile(__dirname + '/Login.html');
+    //respond.sendFile(__dirname + '/Login.html');
 });
 
 //When request is sent to server /Login

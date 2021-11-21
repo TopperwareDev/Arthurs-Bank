@@ -14,7 +14,7 @@ const { dirname } = require('path');
 // ------ Pages ------
 const login = require("./Pages/Login");
 const createAccount = require("./Pages/CreateAccount");
-const userMenu = require("./Pages/UserMenu");
+const userMenu = require("./Pages/Home");
 
 app.use(login);
 app.use(createAccount);
