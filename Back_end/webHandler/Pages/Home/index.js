@@ -26,3 +26,11 @@ app.get("/Home", (request,respond) => {
     });
     
 });
+
+app.post("/logout", (request, respond) => {
+
+    console.log('a post was requested');
+
+    authentication.RemoveAuthedUser(request, respond);
+
+});

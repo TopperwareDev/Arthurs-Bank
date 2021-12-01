@@ -39,6 +39,8 @@ function validateCookie(request, callback){
         if(cookie){
             AuthedUsers.encryptedUsernameCheck(cookie, frvcipher, (exists) =>{
 
+                console.log('this is called right');
+                
                 if(exists){
                     
                     callback(true);
@@ -46,7 +48,6 @@ function validateCookie(request, callback){
         
                 }else{
 
-                    console.log("A unvalidated user is trying to accses a secure page - Redirecting to homepage");
                     callback(false);
                     return;
 
@@ -63,9 +64,39 @@ function validateCookie(request, callback){
     });
 }
 
+//remove login in user 
+function RemoveAuthedUser(request, respond){ 
+
+    AuthedUsers.getCookie('Authentication', request, (cookie) =>{
+
+        AuthedUsers.GetAuthedUserKey(cookie, (key) => {
+
+            if(key != undefined){
+
+                AuthedUsers.decryptCookie(key, cookie, request, (decrypted) =>{
+
+                    AuthedUsers.RemoveAuthedUser(decrypted);
+                    
+                    console.log('User: ' + decrypted + ' has just logged out');
+
+                    respond.clearCookie('Authentication');
+
+                    respond.redirect('/Login');// redirect -> login
+                });
+
+            }else{
+                console.log('Could not find key - authenication -> index.js');
+                return;
+            }
+
+        });
+    })
+}
+
 module.exports = {
 
     Authenticate,
-    validateCookie
+    validateCookie,
+    RemoveAuthedUser
 
 };

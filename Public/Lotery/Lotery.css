@@ -2,7 +2,7 @@ body{
 
 background-color: #7D70BA;
 margin: 0px;
-padding-left: 0px;
+padding-bottom: 0px;
 
 }
 
@@ -16,35 +16,24 @@ padding-left: 0px;
   top: 30px;
   background-color: #343633;
   border-radius: 20px;
-  text-align: center;
-  line-height: 5px;
-  padding: 0px;
+  line-height: 0px;
+  padding: 35px;
   margin: 0px;
-  height: 50px;
+  height: auto;
   width: 150px;
   font-family: 'Gemunu Libre', sans-serif;
   color: white;
   box-shadow: 0px 0px 5px 5px #DEC1FF;
+  font-size: 30px;
 }
 
 .gamebox-div{
   background-color: #343633;
   border-radius: 20px;
-  height: 700px;
+  height: 550px;
   width: 600px;
   top: 150px;
-  box-shadow:
-  0px 0px 5px 5px #DEC1FF;
-}
-
-.ball{
-  height: 400px;
-  width: 400px;
-  border-radius: 100%;
-  background-color: white;
-  top: 40px;
-  margin: 0px;
-  background: radial-gradient(circle at 100px 100px, #7ED321, #000);
+  box-shadow: 0px 0px 5px 5px #DEC1FF;
 }
 
 .lotery-number{
@@ -56,27 +45,56 @@ padding-left: 0px;
   width: 180px;
   height: 180px;
   border-radius: 100%;
-  top: 150px;
-  left: 150px;
-  background: radial-gradient(circle at 10px 50px, white, #808080);
+  top: 60px;
+  left: 50px;
+  background: radial-gradient(circle at -50px 100px, white, #515152);
   box-shadow: 0 0 50px 5px white inset;
 }
 
 .count-down{
 
   position: absolute;
-  font-family: 'Gemunu Libre', sans-serif;
-  top: 500px;
-  height: 100px;
-  width:  300px;
-  background-color: #7D70BA;
-  border-radius: 20px;
-  box-shadow: 0 0 3px 5px #7D70BA;
-  left: 50px;
+  right: 65px;
+  bottom: 20px;
+  height: 50px;
+  width: 150px;
+  background-color: black;
+  box-shadow: 0 0 0px 8px #93867F;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.info{
+
+  position: absolute;
+  left: 220px;
+  top: 10px;
+  width: 280px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 0 0px 8px #93867F;
+  border-radius: 10px;
 
 }
 
+.buy-button{
 
+  position: absolute;
+  top: 225px;
+  left: 10px;
+  height: 150px;
+  width: 150px;
+
+  box-shadow: 0 0 0px 8px #93867F;
+  border-radius: 10px;
+  font-size: 60px;
+  font-family: 'Gemunu Libre', sans-serif;
+
+}
+
+/*
+Colors from color pallet
 #5CC8FF
 #93867F
 #343633
@@ -84,3 +102,21 @@ padding-left: 0px;
 #DEC1FF
 #7ED321
 #E13232
+*/
+
+.Wave{
+  aspect-ratio: 850/675;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  bottom: 0px;
+  }
+  
+  .waveSVG{
+  
+    background-image: url('/Public/SVG/waves.svg');
+  
+  }

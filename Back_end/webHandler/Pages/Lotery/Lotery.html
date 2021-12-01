@@ -12,21 +12,30 @@
 <body>
 
   <div class="title-div center">
-      <h1>Lotery</h1>
+      <h1 style="position: absolute; top: -10px; left: 50%; transform: translate(-50%);">Lotery</h1>
   </div>
   <div class="gamebox-div center">
-    <div class="ball center">
-        <div class="lotery-number">
-          <h2 style="position: absolute; left: 50%; transform: translate(-50%); top: 10px; font-size: 60px;" id="id01">1234</h2>
+    
+    <div class="lotery-number">
+      <h2 style="position: absolute; left: 50%; transform: translate(-50%); top: 10px; font-size: 60px;" id="id01">1234</h2>
+
+      <div class="info"> 
+        <h1 style="position: absolute; left: 55px; top: -10px;">Lotery Number</h1>
+
+        <h2 style="position: absolute; left: 100px; bottom: 65px;">Time left</h2>
+
+        <div class="count-down">
+          <h1 style="position: absolute; top: -23px; left: 15px;">12:12:12</h1>
         </div>
+
+      </div>
+
+      <button class="buy-button">BUY</button>
+
     </div>
-
-    <div class="count-down">
-        <h1 style="position: absolute; left: 50%; transform: translate(-50%); top: -25px; font-size: 60px;">hor:min:sec</h1>
-    </div>
-
-
   </div>
+
+  <div class="Wave waveSVG"></div>
 
   <! REMEMBER TO PLACE SCRIPTS AT BOTTOM SO THEY ARE CALLED WHEN FULL HTML PAGE IS LOADED>
 

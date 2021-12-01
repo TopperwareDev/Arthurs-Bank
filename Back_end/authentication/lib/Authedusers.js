@@ -27,14 +27,15 @@ for(i = 0; i < AuthedUsers.length; ++i){
 
 }
 
-function GetAuthedUserKey(username){
+function GetAuthedUserKey(encryptedUsername, callback){
 
     for(i = 0; i != AuthedUsers.length; ++i){
-        if(AuthedUsers[i].split(" ")[0] == username){
+        if(AuthedUsers[i].split(" ")[0] == encryptedUsername){
             
             var username_Key = AuthedUsers[i].split(" "); //this will split the string at every space
 
-            return username_Key[1]; // read seccond element in arry
+            callback(username_Key[1]);// read seccond element in arry
+            return; 
         }
     }
 }
@@ -44,6 +45,7 @@ function encryptedUsernameCheck(encyptedUsername, frvcipher, callback){
     for(i = 0; i != AuthedUsers.length; ++i){
         
         /*
+        remember to use decrypt cookie funciton
         for now comment out because it will not be used as encryption lib is disfunctional
         if(frvcipher.decrypt(encyptedUsername, AuthedUsers[i].split(" ")[1]) == AuthedUsers[i].split(" ")[0]){
 
@@ -52,16 +54,17 @@ function encryptedUsernameCheck(encyptedUsername, frvcipher, callback){
         }
         */
 
-        if(encyptedUsername != null &&  encyptedUsername == AuthedUsers[i].split(" ")[0]){
+        if(encyptedUsername != null && encyptedUsername == AuthedUsers[i].split(" ")[0]){
             
             callback(true);
             return;
 
         }
     }
-
+    
     callback(false);
     return;
+
 }
 
 function getCookie(CookieName, request, callback){
@@ -89,12 +92,24 @@ if(allCookies == undefined){ // if no cookies exist
 
 }
 
+//funtion to decrypt authentication cooke with key
+function decryptCookie(key, cookie, request, callback){
+
+    //decryp magic here
+    var decrypted = cookie;
+
+    callback(decrypted);
+    return;
+}
+
+
 module.exports = {
 
 AddAuthedUser,
 RemoveAuthedUser,
 GetAuthedUserKey,
 encryptedUsernameCheck,
-getCookie
+getCookie,
+decryptCookie
 
 }
