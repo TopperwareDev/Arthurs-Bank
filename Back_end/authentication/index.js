@@ -11,7 +11,6 @@ const app = express();
 //app.use(cookieParser());
 
 const AuthedUsers = require("./lib/Authedusers");
-const frvcipher = require(path.resolve('Back_end/frvcipher'));
 
 const cookieConfigure = {
     
@@ -23,7 +22,7 @@ const cookieConfigure = {
 function Authenticate(username, respond, callback){
 
     //store authed user with encryption key
-    AuthedUsers.AddAuthedUser(username, frvcipher);
+    AuthedUsers.AddAuthedUser(username);
 
     //get key corrsponing with username and save encrypted usename in cookie
 
@@ -37,7 +36,7 @@ function validateCookie(request, callback){
     AuthedUsers.getCookie('Authentication', request, (cookie) => {
 
         if(cookie){
-            AuthedUsers.encryptedUsernameCheck(cookie, frvcipher, (exists) =>{
+            AuthedUsers.encryptedUsernameCheck(cookie, (exists) =>{
 
                 console.log('this is called right');
                 
