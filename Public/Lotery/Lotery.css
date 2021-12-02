@@ -21,7 +21,7 @@ padding-bottom: 0px;
   margin: 0px;
   height: auto;
   width: 150px;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   color: white;
   box-shadow: 0px 0px 5px 5px #DEC1FF;
   font-size: 30px;
@@ -37,7 +37,7 @@ padding-bottom: 0px;
 }
 
 .lotery-number{
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   position: absolute;
   padding: 0px;
   margin: 0px;
@@ -89,7 +89,7 @@ padding-bottom: 0px;
   box-shadow: 0 0 0px 8px #93867F;
   border-radius: 10px;
   font-size: 60px;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
 
 }
 
