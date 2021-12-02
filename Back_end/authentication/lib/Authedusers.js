@@ -20,26 +20,15 @@ for(i = 0; i < AuthedUsers.length; ++i){
 
     }
 }
-
 }
 
-function GetAuthedUserKey(encryptedUsername, callback){
+async function encryptedUsernameCheck(encyptedUsername, bcrypt, callback){
 
     for(i = 0; i != AuthedUsers.length; ++i){
-        if(AuthedUsers[i] == encryptedUsername){
 
-            callback(AuthedUsers[i]);// read seccond element in arry
-            return; 
-            
-        }
-    }
-}
-
-function encryptedUsernameCheck(encyptedUsername, callback){
-
-    for(i = 0; i != AuthedUsers.length; ++i){
+        const authenticated = await bcrypt.compare(AuthedUsers[i], encyptedUsername);
         
-        if(encyptedUsername != null && encyptedUsername == AuthedUsers[i]){
+        if(encyptedUsername != null && authenticated){
             
             callback(true);
             return;
@@ -77,24 +66,12 @@ if(allCookies == undefined){ // if no cookies exist
 
 }
 
-//funtion to decrypt authentication cooke with key
-function decryptCookie(key, cookie, request, callback){
-
-    //decryp magic here
-    var decrypted = cookie;
-
-    callback(decrypted);
-    return;
-}
-
 
 module.exports = {
 
 AddAuthedUser,
 RemoveAuthedUser,
-GetAuthedUserKey,
 encryptedUsernameCheck,
-getCookie,
-decryptCookie
+getCookie
 
 }

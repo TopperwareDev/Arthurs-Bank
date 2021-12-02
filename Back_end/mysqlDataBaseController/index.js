@@ -12,9 +12,9 @@ const con = mysql.createConnection({
 
 con.connect(function(error) {
   if(!!error) {
-    console.log("failed - Database is most likely down");
+    console.log("Database: failed");
   }else{
-    console.log('Database Connection: good');
+    console.log('Database: good');
   }
 });
 
