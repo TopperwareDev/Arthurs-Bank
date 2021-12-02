@@ -8,7 +8,7 @@ margin: 0px;
 h1{
 
   color: white;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   text-align: center;
 
 }
@@ -38,7 +38,7 @@ h1{
 .LOGIN_FORM_TEXT{
 
   color: white;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   transform: translate(10px, 0px);
 
 }
@@ -46,7 +46,7 @@ h1{
 .REGISTER_BUTTON{
 
   color: Black;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   right: 10px;
   bottom: 10px;
   width: 100px;
@@ -60,7 +60,7 @@ h1{
 .BACK_LOGIN_BUTTON{
 
   color: Black;
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   left: 10px;
   bottom: 10px;
   width: 100px;

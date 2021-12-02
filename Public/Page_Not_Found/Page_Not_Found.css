@@ -5,7 +5,7 @@ background-color: #7D70BA;
 }
 
 h1{
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   text-align: center;
   font-size: 100px;
 
@@ -16,7 +16,7 @@ h1{
 }
 
 h2{
-  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Azeret Mono', monospace;
   text-align: center;
 
   top: -20px;
