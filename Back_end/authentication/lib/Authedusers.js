@@ -30,7 +30,7 @@ async function encryptedUsernameCheck(encyptedUsername, bcrypt, callback){
         
         if(encyptedUsername != null && authenticated){
             
-            callback(true);
+            callback(true, AuthedUsers[i]);
             return;
 
         }
@@ -65,7 +65,6 @@ if(allCookies == undefined){ // if no cookies exist
 }
 
 }
-
 
 module.exports = {
 

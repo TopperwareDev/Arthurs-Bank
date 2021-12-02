@@ -6,4 +6,6 @@ function logout(){
     //post.send(JSON.stringify({}));
     post.send();
 
+    window.location.href = "/";
+
 }

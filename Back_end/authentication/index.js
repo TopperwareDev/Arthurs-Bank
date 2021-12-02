@@ -62,11 +62,30 @@ function validateCookie(request, callback){
     });
 }
 
-//remove login in user 
+//log out user
 function RemoveAuthedUser(request, respond){ 
 
     AuthedUsers.getCookie('Authentication', request, (cookie) =>{
 
+        AuthedUsers.encryptedUsernameCheck(cookie, bcrypt, (exists, username) =>{
+
+            if(exists){
+
+                AuthedUsers.RemoveAuthedUser(username);
+
+                console.log('User: ' + username + ' has just logged out');
+
+                //clear Authentication cookie
+                respond.clearCookie('Authentication');
+
+            }else{
+                // if cookie cannot be authenticated 
+                console.log('User does not exist-> authentication/index.js');
+            }
+
+        });
+
+        /*
         AuthedUsers.GetAuthedUserKey(cookie, (key) => {
 
             if(key != undefined){
@@ -88,6 +107,9 @@ function RemoveAuthedUser(request, respond){
             }
 
         });
+
+        */
+
     })
 }
 
