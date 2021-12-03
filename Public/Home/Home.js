@@ -1,3 +1,9 @@
+//data url -> this is where the js is requesting data from
+let url = '/home/data';
+
+const username = null;
+const balance  = null;
+
 function logout(){
 
     var post = new XMLHttpRequest();
@@ -9,3 +15,6 @@ function logout(){
     window.location.href = "/";
 
 }
+
+//request username from server
+fetch(url).then(res => res.json()).then(out => console.log('this is username: ' + out[0].username));

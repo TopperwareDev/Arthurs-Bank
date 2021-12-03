@@ -34,3 +34,14 @@ app.post("/logout", (request, respond) => {
     authentication.RemoveAuthedUser(request, respond);
 
 });
+
+//all data sent to home - username, ballance
+app.get("/Home/data", (request,respond) => {
+
+    const data = [
+        {username: 'kaan', balance: '69420'}
+    ]
+    
+    respond.json(data);
+    
+});
