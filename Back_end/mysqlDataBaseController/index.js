@@ -1,8 +1,6 @@
 //const express = require('express');
 const mysql = require('mysql');
 
-const promisify = require('util').promisify; //allows for funtions to be called in order
-
 const con = mysql.createConnection({
   host: "db4free.net",
   user: "economyproject",
@@ -103,27 +101,26 @@ function a(dupecheck){
 function getValue(table_name, rowName0, collumn, callback){
 
     //select everything from table
-  var sql = "SELECT * FROM " + table_name;
+    var sql = "SELECT * FROM " + table_name;
 
-  con.query(sql, function (err, result, fields) {
-    if (err) throw err;
+    con.query(sql, function (err, result, fields) {
+     if (err) throw err;
 
-    for(row = 0; row != result.length; ++row){
+     for(row = 0; row != result.length; ++row){
   
-      console.log(result[row].USERNAME);
-      console.log('This is row name' + rowName0);
-      if(result[row][0] == rowName0){ //why is this not matching?????/
+        //console.log(result[row].BALANCE);
+        //console.log('This is row name' + rowName0);
+        //console.log(result[row][0] == rowName0);
+        if(result[row].USERNAME == rowName0){
       
-        callback(result[row][collumn]);
-        return;
+          //console.log('This is called');
+          callback(result[row].BALANCE); // need to change to stop using .xxxxxxx insead [xxx] so its more flexible
+          return;
 
         
-      }
-    }
-});
-
-
-
+        }
+     }
+  });
 }
 
 
@@ -136,8 +133,6 @@ module.exports={
   getValue
 
 };
-
-
 
 /*
 

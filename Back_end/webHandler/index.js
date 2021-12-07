@@ -14,14 +14,18 @@ const { dirname } = require('path');
 // ------ Pages ------
 const login = require("./Pages/Login");
 const createAccount = require("./Pages/CreateAccount");
-const userMenu = require("./Pages/Home");
+const home = require("./Pages/Home");
+const lotery = require("./Pages/Lotery");
 
 app.use(login);
 app.use(createAccount);
-app.use(userMenu);
+app.use(home);
+app.use(lotery);
 
 //public folder
 app.use("/Public", express.static('Public')); 
+
+
 // ------ Pages ------
 
 app.get("/", (req, res) => { // Redirect to login

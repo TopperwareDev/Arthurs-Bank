@@ -1,16 +1,16 @@
 //This is the custom authenticator
 //Standard name for Autentication cookie is : "Authentication"
 
-const salt = 4.39827238945;
-
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const path = require('path');
 
 const app = express();
 
 const AuthedUsers = require("./lib/Authedusers");
+
+const saltRounds = 9;
 
 const cookieConfigure = {
     
@@ -19,19 +19,22 @@ const cookieConfigure = {
 
 };
 
-async function Authenticate(username, respond, callback){
+function Authenticate(username, respond, callback){
 
     //store authed user with encryption key
     AuthedUsers.AddAuthedUser(username);
 
-    //encrypt the usename
-    const encryptedUsername = await bcrypt.hash(username, salt);
+    bcrypt.genSalt(saltRounds, async function(err, salt) {
+        //encrypt the usename
+        const encryptedUsername = await bcrypt.hash(username, salt);
 
-    respond.cookie('Authentication', encryptedUsername, cookieConfigure);
+        respond.cookie('Authentication', encryptedUsername, cookieConfigure);
 
-    respond.cookie('Username', username, cookieConfigure);
+        respond.cookie('Username', username, cookieConfigure);
     
-    callback();
+        callback();
+    });
+
 }
 
 function validateCookie(request, callback){
