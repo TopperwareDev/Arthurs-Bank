@@ -42,31 +42,6 @@ function verifyLogin(table_name, username, password, callback){
   });
 }
 
-function match(table_name, collum, value, callback){
-
-
-  //select everything from table
-  var sql = "SELECT * FROM " + table_name;
-
-  con.query(sql, function (err, result, fields) {
-   if (err) throw err;
-   //console.log(result);
-
-   for(row = 0; row != result.length; ++row){
-
-     //need to change so match work on any row name ---------------------------
-     if(result[row].USERNAME == value){
-
-        callback(true);
-        return;
-      }
-   }
-   callback(false);
-   return false;
-  });
-
-}
-
 function createAccount (table_name, username, password, password_Repeat, email, callback) {
    /*
     if return is nothing, then all went well and new account is saved
@@ -125,7 +100,42 @@ function a(dupecheck){
 }  
 }
 
+function getValue(table_name, rowName0, collumn, callback){
 
+    //select everything from table
+  var sql = "SELECT * FROM " + table_name;
+
+  con.query(sql, function (err, result, fields) {
+    if (err) throw err;
+
+    for(row = 0; row != result.length; ++row){
+  
+      console.log(result[row].USERNAME);
+      console.log('This is row name' + rowName0);
+      if(result[row][0] == rowName0){ //why is this not matching?????/
+      
+        callback(result[row][collumn]);
+        return;
+
+        
+      }
+    }
+});
+
+
+
+}
+
+
+//con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
+
+module.exports={
+
+  verifyLogin,
+  createAccount,
+  getValue
+
+};
 
 
 
@@ -141,12 +151,28 @@ how to insert with out knowing column name
 
 */
 
+/*
+function match(table_name, collum, value, callback){
 
-//con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
+  //select everything from table
+  var sql = "SELECT * FROM " + table_name;
 
-module.exports={
+  con.query(sql, function (err, result, fields) {
+   if (err) throw err;
+   //console.log(result);
 
-  verifyLogin,
-  createAccount
+   for(row = 0; row != result.length; ++row){
 
-};
+     //need to change so match work on any row name ---------------------------
+     if(result[row][collum] == value){
+
+        callback(true);
+        return;
+      }
+   }
+   callback(false);
+   return false;
+  });
+
+}
+*/

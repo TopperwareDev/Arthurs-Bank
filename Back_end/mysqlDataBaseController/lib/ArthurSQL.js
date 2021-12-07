@@ -8,6 +8,7 @@ const con_Login_Table = mysql.createConnection({
   database: "economyproject"
 });
 
+/*
 con_Login_Table.connect(function(error) {
 if(!!error) {
   console.log("failed");
@@ -19,7 +20,6 @@ if(!!error) {
     if (err) throw err;
     console.log("1 record inserted");
   });
-
-
 }
 });
+*/

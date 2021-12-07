@@ -1,8 +1,20 @@
 //data url -> this is where the js is requesting data from
 let url = '/home/data';
 
-const username = null;
-const balance  = null;
+//Get Html Elements
+const accountName = document.getElementById("accountName");
+const balance = document.getElementById("bal");
+
+
+//Request data from server
+fetch(url).then(res => res.json()).then(out => gotdata(out));
+
+function gotdata(data){
+    
+    accountName.innerHTML = (data[0].username);
+    balance.innerHTML = (data[0].balance + "$");
+
+}
 
 function logout(){
 
@@ -15,6 +27,3 @@ function logout(){
     window.location.href = "/";
 
 }
-
-//request username from server
-fetch(url).then(res => res.json()).then(out => console.log('this is username: ' + out[0].username));

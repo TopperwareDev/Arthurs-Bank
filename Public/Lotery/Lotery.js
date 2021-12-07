@@ -1,4 +1,3 @@
-console.log('This file if properly referenced right?');
 
 const element = document.getElementById("id01");
 element.innerHTML = (Math.round(Math.random() * 101));

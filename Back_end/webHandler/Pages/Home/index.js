@@ -7,6 +7,7 @@ app.use(cookieParser());
 const path = require('path');
 
 const authentication = require(path.resolve('Back_end/authentication')); //get Authenticator module
+const mysqlController = require(path.resolve('Back_end/mysqlDataBaseController')); //get ArthurSQL module
 
 app.get("/Home", (request,respond) => {
     
@@ -35,13 +36,22 @@ app.post("/logout", (request, respond) => {
 
 });
 
-//all data sent to home - username, ballance
+//respond with data for homepage ->  username, ballance
 app.get("/Home/data", (request,respond) => {
 
-    const data = [
-        {username: 'kaan', balance: '69420'}
-    ]
-    
-    respond.json(data);
-    
+    //get username
+    authentication.getUsername(request, (username) =>{
+
+         //get ballance
+         mysqlController.getValue('WEB_LOGIN', username, 3, (bal) => {
+
+            const data = [
+                {username: username, balance: bal}
+            ]
+            
+            respond.json(data);
+
+         });
+    });
 });
+

@@ -56,8 +56,6 @@ if(allCookies == undefined){ // if no cookies exist
 }else{
 
     cookie = request.cookies[CookieName];
-    
-    //console.log(cookie);
 
     callback(cookie);
     return;

@@ -28,6 +28,8 @@ async function Authenticate(username, respond, callback){
     const encryptedUsername = await bcrypt.hash(username, salt);
 
     respond.cookie('Authentication', encryptedUsername, cookieConfigure);
+
+    respond.cookie('Username', username, cookieConfigure);
     
     callback();
 }
@@ -113,10 +115,23 @@ function RemoveAuthedUser(request, respond){
     })
 }
 
+//get username from "Username" Cookie
+function getUsername(request, callback){
+
+    AuthedUsers.getCookie('Username', request, (username) => {
+
+        callback(username);
+        return;
+
+    });
+}
+
+
 module.exports = {
 
     Authenticate,
     validateCookie,
-    RemoveAuthedUser
+    RemoveAuthedUser,
+    getUsername
 
 };
