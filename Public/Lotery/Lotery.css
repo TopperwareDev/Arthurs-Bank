@@ -20,78 +20,33 @@ padding-bottom: 0px;
   padding: 35px;
   margin: 0px;
   height: auto;
-  width: 150px;
+  width: 200px;
   font-family: 'Azeret Mono', monospace;
   color: white;
-  box-shadow: 0px 0px 5px 5px #DEC1FF;
   font-size: 30px;
 }
 
 .gamebox-div{
   background-color: #343633;
   border-radius: 20px;
-  height: 550px;
+  height: 750px;
   width: 600px;
   top: 150px;
-  box-shadow: 0px 0px 5px 5px #DEC1FF;
 }
 
-.lotery-number{
-  font-family: 'Azeret Mono', monospace;
+table {
+  border: 0px;
+  height: 550px;
+  width: 550px;
   position: absolute;
-  padding: 0px;
-  margin: 0px;
-  background-color: white;
-  width: 180px;
-  height: 180px;
-  border-radius: 100%;
-  top: 60px;
-  left: 50px;
-  background: radial-gradient(circle at -50px 100px, white, #515152);
-  box-shadow: 0 0 50px 5px white inset;
+  bottom: 25px;
 }
 
-.count-down{
-
-  position: absolute;
-  right: 65px;
-  bottom: 20px;
-  height: 50px;
-  width: 150px;
-  background-color: black;
-  box-shadow: 0 0 0px 8px #93867F;
-  border-radius: 10px;
-  font-size: 20px;
-  color: white;
+td {
+  border-radius: 5px;
+  background-color: red;
 }
 
-.info{
-
-  position: absolute;
-  left: 220px;
-  top: 10px;
-  width: 280px;
-  height: 400px;
-  background-color: white;
-  box-shadow: 0 0 0px 8px #93867F;
-  border-radius: 10px;
-
-}
-
-.buy-button{
-
-  position: absolute;
-  top: 225px;
-  left: 10px;
-  height: 150px;
-  width: 150px;
-
-  box-shadow: 0 0 0px 8px #93867F;
-  border-radius: 10px;
-  font-size: 60px;
-  font-family: 'Azeret Mono', monospace;
-
-}
 
 /*
 Colors from color pallet
