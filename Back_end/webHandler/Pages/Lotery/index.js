@@ -1,14 +1,9 @@
+const { table } = require('console');
 const express = require('express');
 const app = module.exports = express();
 
 const path = require('path');
 const authentication = require(path.resolve('Back_end/authentication'));
-
-// --- lotery configuration
-const height = 10;
-const width = 10;
-//const expireDate = ; // time until winner is selected and reset
-// ---
 
 app.get("/Lotery", (request,respond) => {
 
@@ -27,12 +22,17 @@ app.get("/Lotery", (request,respond) => {
     });
 });
 
-app.get("/Lotery/data", (request,respond) => {
+app.get("/Lotery/data", (request,respond) => { //make user request this every 30 sec -> cuz it will stess the server too much
 
-     const data = [
-        {height: height, width: width}
-    ]
+    //check each username for data
+
+
+
+    // example
+    let tableData = new Array();
+   
+    console.log(tableData);
     
-    respond.json(data);
+    //respond.json(data);
 
 });

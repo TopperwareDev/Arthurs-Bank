@@ -37,9 +37,6 @@ module.exports = {
 
 };
 
-
-
-
 /*
 con_Login_Table.connect(function(error) {
 if(!!error) {

@@ -1,25 +1,26 @@
 
 fetch('/Lotery/data').then(res => res.json()).then(out => gridData(out));
 
-function gridData(data){
+function buildGrid(){
 
+  console.log('is thsi dhfsjdfh ');
   let boxID = 0;
-    
-  console.log(data[0].height);
-  console.log(data[0].width);
+
+  const height = 10;
+  const width = 10;
 
   //get table from html
   let loteryTable = document.getElementById('loteryTable');
 
   //generate table
-  for(let rows = 0; rows < data[0].height; ++ rows){
+  for(let rows = 0; rows < height; ++ rows){
 
     let row = document.createElement('tr');
     row.id = 'row' + rows;
 
     loteryTable.appendChild(row);
 
-    for(let cols = 0; cols < data[0].width; ++ cols){
+    for(let cols = 0; cols < width; ++ cols){
       
       let box = document.createElement('td');
       box.id = 'box' + ++boxID;
@@ -31,6 +32,29 @@ function gridData(data){
   }
 
 }
+
+function updateGrid(){
+
+
+
+  //send request to server for taken grids
+
+
+
+
+}
+
+buildGrid();
+
+setInterval(updateGrid(), 100);
+
+
+
+
+
+
+
+
 
 /* geheheheheheh egegrgegrge here is thsep robse fix here
 document.getElementById('box' + box).style.width = '10px';

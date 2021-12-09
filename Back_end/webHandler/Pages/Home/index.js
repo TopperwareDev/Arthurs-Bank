@@ -43,7 +43,7 @@ app.get("/Home/data", (request,respond) => {
     authentication.getUsername(request, (username) =>{
 
          //get ballance
-         mysqlController.getValue('WEB_LOGIN', username, 3, (bal) => {
+         mysqlController.getValue('WEB_LOGIN', username, 'USERNAME', 'BALANCE',(bal) => {
 
             const data = [
                 {username: username, balance: bal}

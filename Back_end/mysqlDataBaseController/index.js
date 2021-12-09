@@ -82,7 +82,7 @@ function createAccount (table_name, username, password, password_Repeat, email, 
     }else{
     
       //enter new account into sql database
-     var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "')";
+     var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "', '" + 0 + "')";
 
       con.query(sql);
 
@@ -96,8 +96,7 @@ function createAccount (table_name, username, password, password_Repeat, email, 
 });
 }  
 
-
-function getValue(table_name, rowName0, collumn, callback){
+function getValue(table_name, identifyer, identifyerCollumName, collumName,  callback){
 
   //select everything from table
   var sql = "SELECT * FROM " + table_name;
@@ -107,19 +106,21 @@ function getValue(table_name, rowName0, collumn, callback){
 
    for(row = 0; row != result.length; ++row){
 
-      //console.log(result[row].BALANCE);
-      //console.log('This is row name' + rowName0);
-      //console.log(result[row][0] == rowName0);
-      if(result[row].USERNAME == rowName0){
+      if(result[row][identifyerCollumName] == identifyer){
     
-        //console.log('This is called');
-        callback(result[row].BALANCE); // need to change to stop using .xxxxxxx insead [xxx] so its more flexible
+        callback(result[row][collumName]); 
         return;
 
       
       }
    }
 });
+}
+
+function loteryTakenBoxes(table_name, ){
+
+
+
 }
 
 //con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
@@ -131,14 +132,3 @@ module.exports={
   getValue
 
 };
-
-/*
-var sql = "INSERT INTO " + table_name + " VALUES ('example value', 'example value', 'example value', 'example value')";
-
-con.query(sql);
-
-how to insert with out knowing column name
-
-"INSERT INTO WEB_LOGIN VALUES ('example value', 'example value', 'example value', 'example value')
-
-*/
