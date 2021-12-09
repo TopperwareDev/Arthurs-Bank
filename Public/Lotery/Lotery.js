@@ -3,7 +3,7 @@ fetch('/Lotery/data').then(res => res.json()).then(out => gridData(out));
 
 function gridData(data){
 
-  let box = 0;
+  let boxID = 0;
     
   console.log(data[0].height);
   console.log(data[0].width);
@@ -21,15 +21,18 @@ function gridData(data){
 
     for(let cols = 0; cols < data[0].width; ++ cols){
       
-      let col = document.createElement('td');
-      col.id = 'box' + ++box;
-      loteryTable.appendChild(col);
+      let box = document.createElement('td');
+      box.id = 'box' + ++boxID;
+      let button = document.createElement('BUTTON');
+      button.className = 'boxButton';
+      box.className = 'box';
+      loteryTable.appendChild(box).appendChild(button);
     }
   }
 
 }
 
-/*
+/* geheheheheheh egegrgegrge here is thsep robse fix here
 document.getElementById('box' + box).style.width = '10px';
 document.getElementById('box' + box).style.height = '10px';
 */

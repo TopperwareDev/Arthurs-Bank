@@ -1,37 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
 
-const con_Login_Table = mysql.createConnection({
+const con = mysql.createConnection({
   host: "db4free.net",
   user: "economyproject",
   password: "123456789",
   database: "economyproject"
 });
-
-function getValue(table_name, rowName0, collumn, callback){
-
-  //select everything from table
-  var sql = "SELECT * FROM " + table_name;
-
-  con.query(sql, function (err, result, fields) {
-   if (err) throw err;
-
-   for(row = 0; row != result.length; ++row){
-
-      //console.log(result[row].BALANCE);
-      //console.log('This is row name' + rowName0);
-      //console.log(result[row][0] == rowName0);
-      if(result[row].USERNAME == rowName0){
-    
-        //console.log('This is called');
-        callback(result[row].BALANCE); // need to change to stop using .xxxxxxx insead [xxx] so its more flexible
-        return;
-
-      
-      }
-   }
-});
-}
 
 function match(table_name, collum, value, callback){
 
@@ -58,7 +33,6 @@ con.query(sql, function (err, result, fields) {
 
 module.exports = {
 
-  getValue,
   match
 
 };

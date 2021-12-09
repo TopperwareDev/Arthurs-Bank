@@ -1,6 +1,8 @@
 //const express = require('express');
 const mysql = require('mysql');
 
+const querryFunctions = require("./lib/querryFunctions");
+
 const con = mysql.createConnection({
   host: "db4free.net",
   user: "economyproject",
@@ -51,19 +53,7 @@ function createAccount (table_name, username, password, password_Repeat, email, 
     if return is 69 -> succses create user
    */
 
-  //check is username is allowed
-  if(username.length < 4){
-
-    callback(3);
-    return;
-
-  }else{
-// check if username is taken
-match("WEB_LOGIN", 'USERNAME', username, a);
-
-function a(dupecheck){
-
-  console.log(dupecheck);
+  querryFunctions.match("WEB_LOGIN", 'USERNAME', username, (dupecheck) => {
 
   if(dupecheck){
 
@@ -84,33 +74,61 @@ function a(dupecheck){
       callback(2);
       return;
 
+    }else if(username.length < 4){
+
+      callback(3);
+      return;
+
     }else{
     
       //enter new account into sql database
-    var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "')";
+     var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "')";
 
-    con.query(sql);
+      con.query(sql);
 
-    console.log("New account created: " + username);
+      console.log("New account created: " + username);
 
-    callback(69);
-    return;
+      callback(69);
+      return;
 
     }
-
   }
-} 
+});
 }  
+
+
+function getValue(table_name, rowName0, collumn, callback){
+
+  //select everything from table
+  var sql = "SELECT * FROM " + table_name;
+
+  con.query(sql, function (err, result, fields) {
+   if (err) throw err;
+
+   for(row = 0; row != result.length; ++row){
+
+      //console.log(result[row].BALANCE);
+      //console.log('This is row name' + rowName0);
+      //console.log(result[row][0] == rowName0);
+      if(result[row].USERNAME == rowName0){
+    
+        //console.log('This is called');
+        callback(result[row].BALANCE); // need to change to stop using .xxxxxxx insead [xxx] so its more flexible
+        return;
+
+      
+      }
+   }
+});
 }
-
-
 
 //con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
 
 module.exports={
 
   verifyLogin,
-  createAccount
+  createAccount,
+  getValue
 
 };
 

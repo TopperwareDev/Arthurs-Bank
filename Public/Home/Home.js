@@ -27,3 +27,9 @@ function logout(){
     window.location.href = "/";
 
 }
+
+function loteryRedirect(){
+
+    window.location.href = "/Lotery";
+
+}
