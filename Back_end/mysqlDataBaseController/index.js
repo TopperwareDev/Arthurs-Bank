@@ -47,6 +47,8 @@ function createAccount (table_name, username, password, password_Repeat, email, 
     if return is 2 -> password is unavaliable
     if return is 3 -> username is too short
     if return is 4 -> password is too short
+
+    if return is 69 -> succses create user
    */
 
   //check is username is allowed
@@ -91,6 +93,9 @@ function a(dupecheck){
 
     console.log("New account created: " + username);
 
+    callback(69);
+    return;
+
     }
 
   }
@@ -98,30 +103,6 @@ function a(dupecheck){
 }  
 }
 
-function getValue(table_name, rowName0, collumn, callback){
-
-    //select everything from table
-    var sql = "SELECT * FROM " + table_name;
-
-    con.query(sql, function (err, result, fields) {
-     if (err) throw err;
-
-     for(row = 0; row != result.length; ++row){
-  
-        //console.log(result[row].BALANCE);
-        //console.log('This is row name' + rowName0);
-        //console.log(result[row][0] == rowName0);
-        if(result[row].USERNAME == rowName0){
-      
-          //console.log('This is called');
-          callback(result[row].BALANCE); // need to change to stop using .xxxxxxx insead [xxx] so its more flexible
-          return;
-
-        
-        }
-     }
-  });
-}
 
 
 //con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
@@ -129,13 +110,11 @@ function getValue(table_name, rowName0, collumn, callback){
 module.exports={
 
   verifyLogin,
-  createAccount,
-  getValue
+  createAccount
 
 };
 
 /*
-
 var sql = "INSERT INTO " + table_name + " VALUES ('example value', 'example value', 'example value', 'example value')";
 
 con.query(sql);
@@ -144,30 +123,4 @@ how to insert with out knowing column name
 
 "INSERT INTO WEB_LOGIN VALUES ('example value', 'example value', 'example value', 'example value')
 
-*/
-
-/*
-function match(table_name, collum, value, callback){
-
-  //select everything from table
-  var sql = "SELECT * FROM " + table_name;
-
-  con.query(sql, function (err, result, fields) {
-   if (err) throw err;
-   //console.log(result);
-
-   for(row = 0; row != result.length; ++row){
-
-     //need to change so match work on any row name ---------------------------
-     if(result[row][collum] == value){
-
-        callback(true);
-        return;
-      }
-   }
-   callback(false);
-   return false;
-  });
-
-}
 */
