@@ -12,6 +12,11 @@ padding-bottom: 0px;
   transform: translate(-50%);
 }
 
+.left{
+  position: absolute;
+  left: 20px;
+}
+
 .title-div{
   top: 30px;
   background-color: #343633;
@@ -26,10 +31,24 @@ padding-bottom: 0px;
   font-size: 30px;
 }
 
+.header {
+  font-family: 'Azeret Mono', monospace;
+  color: white;
+  font-size: 30px;
+  width: auto;
+}
+
+.paragraph{
+  font-family: 'Azeret Mono', monospace;
+  color: white;
+  font-size: 13px;
+  width: auto;
+}
+
 .gamebox-div{
   background-color: #343633;
   border-radius: 20px;
-  height: 750px;
+  height: 760px;
   width: 600px;
   top: 150px;
 }
