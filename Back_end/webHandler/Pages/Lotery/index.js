@@ -5,8 +5,8 @@ const path = require('path');
 const authentication = require(path.resolve('Back_end/authentication'));
 
 // --- lotery configuration -dependant on server ram <--- will reset if server resets
-const height = 10;
-const width = 10;
+const height = 100;
+const width = 100;
 //const expireDate = ; // time until winner is selected and reset
 // ---
 
