@@ -55,12 +55,26 @@ function boxesSelected(boxID){
         changeBoxColor(boxID, freeBox);
         selectedBoxes.splice(i, 1);
         //console.log(selectedBoxes);
+        updatePrice(selectedBoxes.length, 1);
         return;
       }
     } 
     changeBoxColor(boxID, selectBox);
     selectedBoxes.push(boxID.split('box').pop());
+    updatePrice(selectedBoxes.length, 1);
     //console.log(selectedBoxes);
+
+    function updatePrice(totalTickets, pricePrTicket){
+      document.getElementById("loteryTicketPriceTag").innerHTML = (totalTickets * pricePrTicket) + "$";
+    }
+
+}
+
+//Get Users selected boxes -> send to server for verification and purchase
+function BuyloteryTickets(){
+
+  arrayToString(array, callback)
+
 }
 
 // change color of box
@@ -70,6 +84,15 @@ function changeBoxColor(boxID, Color){
 
 }
 
+//change array into string so it can be sent to server
+function arrayToString(array, callback){
+
+  array.forEach(element => {
+    
+  });
+
+
+}
 
 
 

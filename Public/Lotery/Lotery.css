@@ -25,7 +25,7 @@ padding-bottom: 0px;
   padding: 35px;
   margin: 0px;
   height: auto;
-  width: 200px;
+  width: 250px;
   font-family: 'Azeret Mono', monospace;
   color: white;
   font-size: 30px;
@@ -38,16 +38,32 @@ padding-bottom: 0px;
   width: auto;
 }
 
+.headerB {
+  font-family: 'Azeret Mono', monospace;
+  color: black;
+  font-size: 30px;
+  width: auto;
+}
+
+.headerL {
+  font-family: 'Azeret Mono', monospace;
+  color: white;
+  font-size: 40px;
+  width: auto;
+  text-align: center;
+}
+
 .paragraph{
   font-family: 'Azeret Mono', monospace;
   color: white;
   font-size: 13px;
   width: auto;
+  
 }
 
 .gamebox-div{
   background-color: #343633;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 20px;
   height: 760px;
   width: 600px;
   top: 150px;
@@ -87,6 +103,17 @@ padding-bottom: 0px;
   bottom: 0px;
   background-color: #343633;
   border-radius: 0px 20px 20px 0px;
+
+}
+
+.purchaceButton{
+  
+  position: relative;
+  bottom: 10px;
+  left: 10px;
+  height: 100px;
+  width: 160px;
+  border-radius: 20px;
 
 }
 
