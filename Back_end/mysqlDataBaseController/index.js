@@ -117,10 +117,25 @@ function getValue(table_name, identifyer, identifyerCollumName, collumName,  cal
 });
 }
 
-function loteryTakenBoxes(table_name, ){
+function loteryTakenBoxes(table_name, collum, callback){
 
+  let occupiedLoteyBoxes = new Array();
 
+  //select everything from table
+  var sql = "SELECT * FROM " + table_name;
 
+  con.query(sql, function (err, result, fields) {
+   if (err) throw err;
+
+   for(row = 0; row != result.length; ++row){
+
+    occupiedLoteyBoxes.push(result[row][collum]);
+
+   }
+  });
+
+  callback(occupiedLoteyBoxes);
+  return;
 }
 
 //con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
@@ -129,6 +144,7 @@ module.exports={
 
   verifyLogin,
   createAccount,
-  getValue
+  getValue,
+  loteryTakenBoxes
 
 };

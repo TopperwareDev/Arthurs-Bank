@@ -99,7 +99,7 @@ Colors from color pallet
   background-size: cover;
   position: absolute;
   z-index: -1;
-  bottom: 0px;
+  bottom: -250px;
   }
   
   .waveSVG{

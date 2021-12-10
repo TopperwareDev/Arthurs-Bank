@@ -1,5 +1,5 @@
 
-fetch('/Lotery/data').then(res => res.json()).then(out => gridData(out));
+fetch('/Lotery/getTableData').then(res => res.json()).then(out => gridData(out));
 
 function buildGrid(){
 
@@ -34,8 +34,6 @@ function buildGrid(){
 }
 
 function updateGrid(){
-
-
 
   //send request to server for taken grids
 

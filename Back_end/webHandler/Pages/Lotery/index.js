@@ -4,8 +4,9 @@ const app = module.exports = express();
 
 const path = require('path');
 const authentication = require(path.resolve('Back_end/authentication'));
+const mysqlDataBaseController = require(path.resolve('Back_end/mysqlDataBaseController'));
 
-app.get("/Lotery", (request,respond) => {
+app.get("/Lotery", (request,respond) => { // send page
 
     authentication.validateCookie(request, (validated) =>{ //Check Authentication cookie
 
@@ -22,17 +23,20 @@ app.get("/Lotery", (request,respond) => {
     });
 });
 
-app.get("/Lotery/data", (request,respond) => { //make user request this every 30 sec -> cuz it will stess the server too much
+app.get("/Lotery/getTableData", (request,respond) => { //send data to user
 
-    //check each username for data
+    //get all taken boxes
+    mysqlDataBaseController.loteryTakenBoxes('WEB_LOGIN', "LOTERY", (takenBoxes) => {
+
+        console.log(takenBoxes);
+
+        //respond.json(data);
+
+    });
+});
+
+app.post("/Lotery", (request,respond) => { //update user selected boxes
 
 
-
-    // example
-    let tableData = new Array();
-   
-    console.log(tableData);
-    
-    //respond.json(data);
 
 });
