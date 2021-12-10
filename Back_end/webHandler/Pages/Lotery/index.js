@@ -37,6 +37,8 @@ app.get("/Lotery/getTableData", (request,respond) => { //send data to user
 
 app.post("/Lotery", (request,respond) => { //update user selected boxes
 
+    const {LOTERY_BOXES} = request.body;
+
 
 
 });

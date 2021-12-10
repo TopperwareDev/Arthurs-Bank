@@ -1,9 +1,14 @@
 
 fetch('/Lotery/getTableData').then(res => res.json()).then(out => gridData(out));
 
+const freeBox = "green";
+const takenBox = "red";
+const selectBox = "yellow";
+
+// Build lotery boxes
+
 function buildGrid(){
 
-  console.log('is thsi dhfsjdfh ');
   let boxID = 0;
 
   const height = 10;
@@ -26,6 +31,7 @@ function buildGrid(){
       box.id = 'box' + ++boxID;
       let button = document.createElement('BUTTON');
       button.className = 'boxButton';
+      button.setAttribute("onclick", "boxesSelected('" + box.id + "')");
       box.className = 'box';
       loteryTable.appendChild(box).appendChild(button);
     }
@@ -33,51 +39,44 @@ function buildGrid(){
 
 }
 
-function updateGrid(){
+// keep track of selected boxes
+let selectedBoxes = new Array();
+function boxesSelected(boxID){
 
-  //send request to server for taken grids
+  console.log(boxID);
 
+  // remember to check so that user cant remove others reserved squares
 
+    for( i = 0; i < selectedBoxes.length; ++i){
+      // check if box is in array 
+      console.log(selectedBoxes[i] + " = " + boxID.split('box').pop());
+      if(selectedBoxes[i] == boxID.split('box').pop()){ 
+    
+        changeBoxColor(boxID, freeBox);
+        selectedBoxes.splice(i, 1);
+        //console.log(selectedBoxes);
+        return;
+      }
+    } 
+    changeBoxColor(boxID, selectBox);
+    selectedBoxes.push(boxID.split('box').pop());
+    //console.log(selectedBoxes);
+}
 
+// change color of box
+function changeBoxColor(boxID, Color){
+
+  document.getElementById(boxID).style.backgroundColor = Color;
 
 }
+
+
+
+
 
 buildGrid();
 
-setInterval(updateGrid(), 100);
+//function updateGrid(){}
 
+//setInterval(updateGrid(), 100);
 
-
-
-
-
-
-
-
-/* geheheheheheh egegrgegrge here is thsep robse fix here
-document.getElementById('box' + box).style.width = '10px';
-document.getElementById('box' + box).style.height = '10px';
-*/
-/*
-const element = document.getElementById("id01");
-element.innerHTML = (Math.round(Math.random() * 101));
-
-const d = new Date();
-
-console.log(d.getTime());
-
-console.log(d.getTime().substring(0,3));
-
-
-function countdown(hours, min, sec, text, callback){
-
-  for(i = 0; i >= 0; ++i){
-
-
-  }
-}
-
-//loteryNum.textContent = "69";
-
-
-*/
