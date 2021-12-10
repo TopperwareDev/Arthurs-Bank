@@ -386,7 +386,7 @@ h2 {
 }
 
 .div_games:hover .games .roulette{
-  left: -15%;
+  left: 145px;
   opacity: 1;
 }
 
@@ -426,6 +426,6 @@ h2 {
 }
 
 .div_games:hover .games .lottery{
-  right: -15%;
+  right: 145px;
   opacity: 1;
 }
