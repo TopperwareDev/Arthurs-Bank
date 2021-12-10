@@ -363,7 +363,7 @@ h2 {
   background-color: #343633;
   border-radius: 40px 40px 40px 40px;
   opacity: 1;
-  transition: all 1s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .div_games:hover .games{
@@ -378,19 +378,19 @@ h2 {
   bottom: 0;
   margin-top: auto;
   margin-bottom: auto;
-  width: 75%;
-  height: 75%;
+  width: 75px;
+  height: 75px;
   opacity: 0;
   cursor: pointer;
-  transition: all 0.7s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .div_games:hover .games .roulette{
-  left: 145px;
+  left: 40px;
   opacity: 1;
 }
 
-.black_jack {
+.blackjack {
   position: absolute;
   left: 0;
   right: 0;
@@ -400,14 +400,14 @@ h2 {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
-  width: 75%;
-  height: 75%;
+  width: 75px;
+  height: 75px;
   opacity: 0;
   cursor: pointer;
-  transition: all 0.7s ease-out;
+  transition: all 0.5s ease-out;
 }
 
-.div_games:hover .games .black_jack{
+.div_games:hover .games .blackjack{
   opacity: 1;
 }
 
@@ -418,14 +418,14 @@ h2 {
   bottom: 0;
   margin-top: auto;
   margin-bottom: auto;
-  width: 75%;
-  height: 75%;
+  width: 75px;
+  height: 75px;
   opacity: 0;
   cursor: pointer;
-  transition: all 0.7s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .div_games:hover .games .lottery{
-  right: 145px;
+  right: 40px;
   opacity: 1;
 }
