@@ -1,4 +1,3 @@
-
 fetch('/Lotery/getTableData').then(res => res.json()).then(out => gridData(out));
 
 const freeBox = "green";
@@ -41,15 +40,15 @@ function buildGrid(){
 
 // keep track of selected boxes
 let selectedBoxes = new Array();
-function boxesSelected(boxID){
+function boxesSelected(boxID){ //color users boxes in a different color
 
-  console.log(boxID);
+  //console.log(boxID);
 
   // remember to check so that user cant remove others reserved squares
 
     for( i = 0; i < selectedBoxes.length; ++i){
       // check if box is in array 
-      console.log(selectedBoxes[i] + " = " + boxID.split('box').pop());
+      //console.log(selectedBoxes[i] + " = " + boxID.split('box').pop());
       if(selectedBoxes[i] == boxID.split('box').pop()){ 
     
         changeBoxColor(boxID, freeBox);
@@ -70,10 +69,22 @@ function boxesSelected(boxID){
 
 }
 
-//Get Users selected boxes -> send to server for verification and purchase
+//Get Users selected boxes -> send to server 
 function BuyloteryTickets(){
 
-  arrayToString(array, callback)
+  const arrayToString = selectedBoxes.toString();
+
+    const basket = {data: arrayToString};
+
+    if(!(arrayToString == "")){ //Make sure user is not trying to purchase with 0$ in basket
+
+      fetch('/Lotery/BuyTickets', {
+        method: 'POST',
+        body: JSON.stringify(basket), // to be able to read json on server side remember to add (const bodyParser = require('body-parser') --- app.use(bodyParser.json());)
+        headers: {'Content-Type': 'application/json'}
+      });
+
+    }
 
 }
 
@@ -84,22 +95,5 @@ function changeBoxColor(boxID, Color){
 
 }
 
-//change array into string so it can be sent to server
-function arrayToString(array, callback){
-
-  array.forEach(element => {
-    
-  });
-
-
-}
-
-
-
-
 buildGrid();
-
-//function updateGrid(){}
-
-//setInterval(updateGrid(), 100);
 
