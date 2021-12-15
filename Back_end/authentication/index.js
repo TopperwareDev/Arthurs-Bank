@@ -42,11 +42,11 @@ function validateCookie(request, callback){
     AuthedUsers.getCookie('Authentication', request, (cookie) => {
 
         if(cookie){
-            AuthedUsers.encryptedUsernameCheck(cookie, bcrypt, (exists) =>{
+            AuthedUsers.encryptedUsernameCheck(cookie, bcrypt, (exists, username) =>{
                 
                 if(exists){
                     
-                    callback(true);
+                    callback(true, username);
                     return;
         
                 }else{

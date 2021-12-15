@@ -117,33 +117,49 @@ function getValue(table_name, identifyer, identifyerCollumName, collumName,  cal
 });
 }
 
-function loteryTakenBoxes(table_name, collum, callback){
+function lotteryTakenBoxes(table_name, collum, callback){
 
   let occupiedLoteyBoxes = new Array();
 
-  //select everything from table
-  var sql = "SELECT * FROM " + table_name;
+  getCollum(table_name, collum, (result) => {
 
-  con.query(sql, function (err, result, fields) {
-   if (err) throw err;
+    //convert all lottery numbers in to array -> not include "null"
+    result.forEach(element => {
+        //console.log(element.LOTTERY);
 
-   for(row = 0; row != result.length; ++row){
+        if(element.LOTTERY != null){
 
-    occupiedLoteyBoxes.push(result[row][collum]);
+            //if account only has one number just add to array
+            if(element.LOTTERY.split(',').length == 1){
+                //console.log('This user only has one element');
 
-   }
-  });
+                occupiedLoteyBoxes.push(element.LOTTERY);
+
+
+            }else{ //if account has multople numbers split them and then add to array
+                //console.log('This user has more that one element');
+
+                element.LOTTERY.split(',').forEach(number => {
+                    
+                  occupiedLoteyBoxes.push(number);
+
+                });
+
+            }
+        }
+    });
 
   callback(occupiedLoteyBoxes);
-  return;
+  });
 }
 
 //function will search data base for specific value
-function getValue2p0(table_name, collumnToGet, searchCollumn, searchValue, callback){
+function getValue2p0(table_name, collumToGet, searchCollum, searchValue, callback){
 
-  var sql = "SELECT " + collumnToGet + " FROM " + table_name + " WHERE " + searchCollumn + " = " + searchValue;
+  var sql = "SELECT " + collumToGet + " FROM " + table_name + " WHERE " + searchCollum + " = " + "'" + searchValue + "'";
+  //var sql = "SELECT " + collumToGet + " FROM " + table_name + " WHERE " + searchValue + " = " + searchCollum;
 
-  con.query(sql, function (err, result) {
+  con.query(sql, function (err, result, fields){
 
     if (err) throw err;
 
@@ -153,9 +169,9 @@ function getValue2p0(table_name, collumnToGet, searchCollumn, searchValue, callb
 
 }
 
-function getCollum(table_name, collumn, callback){
+function getCollum(table_name, collum, callback){
 
-  const sql = "SELECT " + collumn + " FROM " + table_name;
+  const sql = "SELECT " + collum + " FROM " + table_name;
 
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
@@ -166,15 +182,31 @@ function getCollum(table_name, collumn, callback){
    });
 };
 
-//con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
+function editValue(table_name, collum, value, searchCollum, searchValue){
+
+  const sql = "UPDATE " + table_name + " SET " + collum + " = " + "'" + value + "'" + " WHERE " + searchCollum + " = " + "'" + searchValue + "'";
+
+  con.query(sql);
+
+}
+
+function deleteTableContents(table_name){
+
+  const sql = 'DELETE FROM ' + table_name;
+
+  con.query(sql);
+
+}
 
 module.exports={
 
   verifyLogin,
   createAccount,
   getValue,
-  loteryTakenBoxes,
+  lotteryTakenBoxes,
   getValue2p0,
-  getCollum
+  getCollum,
+  editValue,
+  deleteTableContents
 
 };

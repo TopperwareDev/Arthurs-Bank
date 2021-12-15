@@ -1,5 +1,5 @@
-fetch('/Lottery/getTableData').then(res => res.json()).then(out => gridData(out));
-
+const totalboxes = 100;
+const updateIntervalms = 1000 * 10;
 const freeBox = "green";
 const takenBox = "red";
 const selectBox = "yellow";
@@ -84,7 +84,33 @@ function BuylotteryTickets(){
         headers: {'Content-Type': 'application/json'}
       });
 
+  }
+
+  setTimeout(UpdateGrid, 1000);
+
+}
+
+//color all taken boxes red - and dissable them
+function UpdateGrid(){
+
+  fetch('/Lottery/getTableData').then(res => res.json()).then(data => {
+
+    for( i = 1; i < totalboxes + 1; ++i){
+
+      data.takenLotteryNumbers.split(",").forEach(element => {
+        
+        if(i == element){
+
+          changeBoxColor("box" + i, takenBox);
+
+        }
+
+
+      });
+
     }
+
+  });
 
 }
 
@@ -96,4 +122,13 @@ function changeBoxColor(boxID, Color){
 }
 
 buildGrid();
+
+//update grid when page loads
+window.onload = () => {
+  UpdateGrid();
+};
+
+//update grid every 30 secconds
+setInterval(UpdateGrid, updateIntervalms);
+
 

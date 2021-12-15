@@ -1,6 +1,9 @@
+
 function matchInArays(array1, array2, callback){
 
     let matches = 0;
+
+    let matchedValues = new Array();
 
     array1.forEach(element => {
             
@@ -9,14 +12,14 @@ function matchInArays(array1, array2, callback){
             if(element == purchasedNumbers){
 
                 ++matches;
-
+                matchedValues.push(element);
             }
 
         });
 
     });
 
-    callback(matches);
+    callback(matches, matchedValues.toString());
 }
 
 
