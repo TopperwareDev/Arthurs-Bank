@@ -138,6 +138,34 @@ function loteryTakenBoxes(table_name, collum, callback){
   return;
 }
 
+//function will search data base for specific value
+function getValue2p0(table_name, collumnToGet, searchCollumn, searchValue, callback){
+
+  var sql = "SELECT " + collumnToGet + " FROM " + table_name + " WHERE " + searchCollumn + " = " + searchValue;
+
+  con.query(sql, function (err, result) {
+
+    if (err) throw err;
+
+    callback(result);
+
+  });
+
+}
+
+function getCollum(table_name, collumn, callback){
+
+  const sql = "SELECT " + collumn + " FROM " + table_name;
+
+  con.query(sql, function (err, result, fields) {
+    if (err) throw err;
+ 
+    //make sure your script can read json -> may have to import package
+    callback(result);
+
+   });
+};
+
 //con.query("INSERT INTO WEB_LOGIN (USERNAME, PASSWORD, EMAIL, BALANCE) VALUES ('1234', '1234', '1234', '1234')");
 
 module.exports={
@@ -145,6 +173,8 @@ module.exports={
   verifyLogin,
   createAccount,
   getValue,
-  loteryTakenBoxes
+  loteryTakenBoxes,
+  getValue2p0,
+  getCollum
 
 };
