@@ -6,13 +6,13 @@ const path = require('path');
 const authentication = require(path.resolve('Back_end/authentication'));
 const mysqlDataBaseController = require(path.resolve('Back_end/mysqlDataBaseController'));
 
-app.get("/Lotery", (request,respond) => { // send page
+app.get("/Lottery", (request,respond) => { // send page
 
     authentication.validateCookie(request, (validated) =>{ //Check Authentication cookie
 
         if(validated){
 
-            respond.sendFile(__dirname + '/Lotery.html');
+            respond.sendFile(__dirname + '/Lottery.html');
 
         }else{
 
@@ -23,10 +23,10 @@ app.get("/Lotery", (request,respond) => { // send page
     });
 });
 
-app.get("/Lotery/getTableData", (request,respond) => { //send data to user
+app.get("/Lottery/getTableData", (request,respond) => { //send data to user
 
     //get all taken boxes
-    mysqlDataBaseController.loteryTakenBoxes('WEB_LOGIN', "LOTERY", (takenBoxes) => {
+    mysqlDataBaseController.lotteryTakenBoxes('WEB_LOGIN', "LOTTERY", (takenBoxes) => {
 
         console.log(takenBoxes);
 
@@ -35,9 +35,9 @@ app.get("/Lotery/getTableData", (request,respond) => { //send data to user
     });
 });
 
-app.post("/Lotery", (request,respond) => { //update user selected boxes
+app.post("/Lottery", (request,respond) => { //update user selected boxes
 
-    const {LOTERY_BOXES} = request.body;
+    const {LOTTERY_BOXES} = request.body;
 
 
 

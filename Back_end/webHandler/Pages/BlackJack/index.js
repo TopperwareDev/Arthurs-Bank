@@ -1,8 +1,8 @@
 var express = require('express');
 var app = module.exports = express();
 
-app.get("/BlackJack", (req,res) => {
+app.get("/Blackjack", (req,res) => {
 
-res.sendFile(__dirname + '/Black_Jack.html')
+res.sendFile(__dirname + '/Blackjack.html')
 
 });

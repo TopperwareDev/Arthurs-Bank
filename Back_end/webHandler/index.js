@@ -15,13 +15,13 @@ const { dirname } = require('path');
 const login = require("./Pages/Login");
 const createAccount = require("./Pages/CreateAccount");
 const home = require("./Pages/Home");
-const lotery = require("./Pages/Lotery");
+const lottery = require("./Pages/Lottery");
 const blackJack = require("./Pages/BlackJack");
 
 app.use(login);
 app.use(createAccount);
 app.use(home);
-app.use(lotery);
+app.use(lottery);
 app.use(blackJack);
 
 //public folder
