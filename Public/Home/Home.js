@@ -29,8 +29,8 @@ function logout(){
 
 }
 
-function loteryRedirect(){
+function lotteryRedirect(){
 
-    window.location.href = "/Lotery";
+    window.location.href = "/Lottery";
 
 }

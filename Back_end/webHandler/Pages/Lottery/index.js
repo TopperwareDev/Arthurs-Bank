@@ -38,7 +38,7 @@ app.get("/Lottery/getTableData", (request,respond) => { //send data to user
     });
 });
 
-app.post("/Lotery/BuyTickets", (request,respond) => { //validate lotery purchase and update with server
+app.post("/Lottery/BuyTickets", (request,respond) => { //validate lottery purchase and update with server
 
     const purchasedNumbers = new Array();
 
@@ -46,25 +46,25 @@ app.post("/Lotery/BuyTickets", (request,respond) => { //validate lotery purchase
 
     //console.log(userBuyRequest);
 
-    mysqlDataBaseController.getCollum("WEB_LOGIN", "LOTERY", (result) => {
+    mysqlDataBaseController.getCollum("WEB_LOGIN", "LOTTERY", (result) => {
 
-        //convert all lotery numbers in to array -> not include "null"
+        //convert all lottery numbers in to array -> not include "null"
         result.forEach(element => {
-            //console.log(element.LOTERY);
+            //console.log(element.LOTTERY);
 
-            if(element.LOTERY != null){
+            if(element.LOTTERY != null){
 
                 //if account only has one numbers just add to array
-                if(element.LOTERY.split(',').length == 1){
+                if(element.LOTTERY.split(',').length == 1){
                     //console.log('This user only has one element');
 
-                    purchasedNumbers.push(element.LOTERY);
+                    purchasedNumbers.push(element.LOTTERY);
 
 
                 }else{ //if account has multople numbers split them and then add to array
                     //console.log('This user has more that one element');
 
-                    element.LOTERY.split(',').forEach(number => {
+                    element.LOTTERY.split(',').forEach(number => {
                         
                         purchasedNumbers.push(number);
 
@@ -77,9 +77,9 @@ app.post("/Lotery/BuyTickets", (request,respond) => { //validate lotery purchase
         //check if one of selected elements are already chosen
         customMethods.matchInArays(userBuyRequest.split(','), purchasedNumbers, (matches) => {
 
-            if(matches == 0){ //no lotery numbers have been selected
+            if(matches == 0){ //no lottery numbers have been selected
 
-                //save users lotery number under account name
+                //save users lottery number under account name
 
                 console.log('Yes this is free');
 

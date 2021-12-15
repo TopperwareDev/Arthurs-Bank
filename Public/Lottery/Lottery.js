@@ -1,10 +1,10 @@
-fetch('/Lotery/getTableData').then(res => res.json()).then(out => gridData(out));
+fetch('/Lottery/getTableData').then(res => res.json()).then(out => gridData(out));
 
 const freeBox = "green";
 const takenBox = "red";
 const selectBox = "yellow";
 
-// Build lotery boxes
+// Build lottery boxes
 
 function buildGrid(){
 
@@ -14,7 +14,7 @@ function buildGrid(){
   const width = 10;
 
   //get table from html
-  let loteryTable = document.getElementById('loteryTable');
+  let lotteryTable = document.getElementById('lotteryTable');
 
   //generate table
   for(let rows = 0; rows < height; ++ rows){
@@ -22,7 +22,7 @@ function buildGrid(){
     let row = document.createElement('tr');
     row.id = 'row' + rows;
 
-    loteryTable.appendChild(row);
+    lotteryTable.appendChild(row);
 
     for(let cols = 0; cols < width; ++ cols){
       
@@ -32,7 +32,7 @@ function buildGrid(){
       button.className = 'boxButton';
       button.setAttribute("onclick", "boxesSelected('" + box.id + "')");
       box.className = 'box';
-      loteryTable.appendChild(box).appendChild(button);
+      lotteryTable.appendChild(box).appendChild(button);
     }
   }
 
@@ -64,13 +64,13 @@ function boxesSelected(boxID){ //color users boxes in a different color
     //console.log(selectedBoxes);
 
     function updatePrice(totalTickets, pricePrTicket){
-      document.getElementById("loteryTicketPriceTag").innerHTML = (totalTickets * pricePrTicket) + "$";
+      document.getElementById("lotteryTicketPriceTag").innerHTML = (totalTickets * pricePrTicket) + "$";
     }
 
 }
 
 //Get Users selected boxes -> send to server 
-function BuyloteryTickets(){
+function BuylotteryTickets(){
 
   const arrayToString = selectedBoxes.toString();
 
@@ -78,7 +78,7 @@ function BuyloteryTickets(){
 
     if(!(arrayToString == "")){ //Make sure user is not trying to purchase with 0$ in basket
 
-      fetch('/Lotery/BuyTickets', {
+      fetch('/Lottery/BuyTickets', {
         method: 'POST',
         body: JSON.stringify(basket), // to be able to read json on server side remember to add (const bodyParser = require('body-parser') --- app.use(bodyParser.json());)
         headers: {'Content-Type': 'application/json'}
