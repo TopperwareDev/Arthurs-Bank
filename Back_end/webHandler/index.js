@@ -17,12 +17,14 @@ const createAccount = require("./Pages/CreateAccount");
 const home = require("./Pages/Home");
 const lottery = require("./Pages/Lottery");
 const blackJack = require("./Pages/BlackJack");
+const admin = require("./Pages/Admin");
 
 app.use(login);
 app.use(createAccount);
 app.use(home);
 app.use(lottery);
 app.use(blackJack);
+app.use(admin);
 
 //public folder
 app.use("/Public", express.static('Public')); 

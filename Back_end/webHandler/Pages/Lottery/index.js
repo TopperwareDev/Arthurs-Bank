@@ -32,12 +32,16 @@ app.get("/Lottery/getTableData", (request,respond) => { //send data to user
     //get all taken boxes
     mysqlDataBaseController.lotteryTakenBoxes('WEB_LOGIN', "LOTTERY", (takenBoxes) => {
 
-        console.log(takenBoxes.toString());
+        authentication.getUsername(request, (username) => {
 
-        const data = {takenLotteryNumbers: takenBoxes.toString()};
+            mysqlDataBaseController.getValue2p0("WEB_LOGIN", "LOTTERY", "USERNAME", username, (usersLotteryNumbers) => {
 
-        respond.json(data);
+                const data = {takenLotteryNumbers: takenBoxes.toString(), usersBoxes: usersLotteryNumbers[0].LOTTERY};
 
+                respond.json(data);
+
+            });
+        });
     });
 });
 
@@ -81,7 +85,10 @@ app.post("/Lottery/BuyTickets", (request,respond) => { //validate lottery purcha
 
                 //send error message back to user
 
-                console.log('Another use has already bought this element');
+                //console.log('Another use has already bought this element');
+
+                //if user is manages to click button before it is dissabled it will just refresh page
+                res.redirect('back');
             }
 
         });

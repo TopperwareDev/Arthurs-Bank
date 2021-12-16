@@ -1,8 +1,10 @@
 const totalboxes = 100;
+const pricePrTicket = 1;
 const updateIntervalms = 1000 * 10;
-const freeBox = "green";
-const takenBox = "red";
-const selectBox = "yellow";
+const freeBox = 'green';
+const takenBox = 'red';
+const selectBox = 'yellow';
+const usersBox= 'purple';
 
 // Build lottery boxes
 
@@ -31,6 +33,7 @@ function buildGrid(){
       let button = document.createElement('BUTTON');
       button.className = 'boxButton';
       button.setAttribute("onclick", "boxesSelected('" + box.id + "')");
+      button.id = 'button' + boxID;
       box.className = 'box';
       lotteryTable.appendChild(box).appendChild(button);
     }
@@ -60,13 +63,8 @@ function boxesSelected(boxID){ //color users boxes in a different color
     } 
     changeBoxColor(boxID, selectBox);
     selectedBoxes.push(boxID.split('box').pop());
-    updatePrice(selectedBoxes.length, 1);
+    updatePrice(selectedBoxes.length, pricePrTicket);
     //console.log(selectedBoxes);
-
-    function updatePrice(totalTickets, pricePrTicket){
-      document.getElementById("lotteryTicketPriceTag").innerHTML = (totalTickets * pricePrTicket) + "$";
-    }
-
 }
 
 //Get Users selected boxes -> send to server 
@@ -86,6 +84,8 @@ function BuylotteryTickets(){
 
   }
 
+  selectedBoxes = [];
+  updatePrice(0, pricePrTicket);
   setTimeout(UpdateGrid, 1000);
 
 }
@@ -97,15 +97,24 @@ function UpdateGrid(){
 
     for( i = 1; i < totalboxes + 1; ++i){
 
-      data.takenLotteryNumbers.split(",").forEach(element => {
+      data.takenLotteryNumbers.split(",").forEach(y => {
         
-        if(i == element){
+        data.usersBoxes.split(",").forEach(x => {
 
-          changeBoxColor("box" + i, takenBox);
+          if(x == y){
 
-        }
+            changeBoxColor("box" + i, usersBox);
+            disableBox("button" + i, true);
+  
+          }else if(i == y){
+  
+            changeBoxColor("box" + i, takenBox);
+            disableBox("button" + i, true);
+  
+          }
 
-
+        });
+        
       });
 
     }
@@ -119,6 +128,17 @@ function changeBoxColor(boxID, Color){
 
   document.getElementById(boxID).style.backgroundColor = Color;
 
+}
+
+function disableBox(buttonId, bool){
+
+  document.getElementById(buttonId).disabled = bool;
+
+}
+
+// update price on lottery page next to buy button
+function updatePrice(totalTickets, pricePrTicket){
+  document.getElementById("lotteryTicketPriceTag").innerHTML = (totalTickets * pricePrTicket) + "$";
 }
 
 buildGrid();

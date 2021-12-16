@@ -82,7 +82,7 @@ function createAccount (table_name, username, password, password_Repeat, email, 
     }else{
     
       //enter new account into sql database
-     var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "', '" + 0 + "')";
+     var sql = "INSERT INTO " + table_name + " VALUES ('" + username + "', '" + password + "', '" + email + "', '" + 0 + "', '" + 0 + "', 'USER')";
 
       con.query(sql);
 
