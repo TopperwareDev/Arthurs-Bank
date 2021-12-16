@@ -1,14 +1,15 @@
 body {
-    background-color: #009900;
+    background-color: #006600;
   }
 
 .background {
     position: absolute;
     top: 150px;
-    margin-left: 5%;
+    margin-left: 10%;
     margin-right: 5%;
     width: 90%;
     height: 600px;
+    background-color: #009900;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
     border-color: crimson;
@@ -17,7 +18,7 @@ body {
 
 .background div{
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -33,24 +34,85 @@ body {
 
 .background div:nth-child(1) {
     bottom: 180px;
-    left: 1000px;
+    left: 65%;
     transform: rotate(-30deg);
 }
 
 .background div:nth-child(2) {
-    bottom: 75px;
-    left: 520px;
+    bottom: 85px;
+    left: 33%;
     transform: rotate(-15deg);
 }
 
 .background div:nth-child(4) {
-    bottom: 75px;
-    right: 520px;
+    bottom: 85px;
+    right: 33%;
     transform: rotate(15deg);
 }
 
 .background div:nth-child(5) {
     bottom: 180px;
-    right: 1000px;
+    right: 65%;
     transform: rotate(30deg);
 }
+
+.controls{
+    position: absolute;
+    top: 150px;
+    margin-left: 1%;
+    margin-right: 95%;
+    width: 90%;
+    height: 600px;
+    border-radius: 20px 20px 20px 20px;
+    border-style: solid;
+    border-color: crimson;
+    border-width: 5px;
+}
+
+.bj_double {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.bj_hit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.bj_split {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.bj_stand {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+  }
