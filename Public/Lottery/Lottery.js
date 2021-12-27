@@ -86,8 +86,14 @@ function BuylotteryTickets(){
 
   selectedBoxes = [];
   updatePrice(0, pricePrTicket);
-  setTimeout(UpdateGrid, 1000);
+  setTimeout(UpdateGrid, 200);
 
+  for(i = 1; i < totalboxes - 1; ++i){ //reset whole grid
+
+    changeBoxColor('box' + i, freeBox);
+    disableBox("button" + i, false);
+
+  }
 }
 
 //color all taken boxes red - and dissable them
@@ -95,29 +101,30 @@ function UpdateGrid(){
 
   fetch('/Lottery/getTableData').then(res => res.json()).then(data => {
 
-    for( i = 1; i < totalboxes + 1; ++i){
+    data.takenLotteryNumbers.split(',').forEach(element => {
 
-      data.takenLotteryNumbers.split(",").forEach(y => {
-        
-        data.usersBoxes.split(",").forEach(x => {
 
-          if(x == y){
+      console.log(data.takenLotteryNumbers);
+      if(!(element == '0' || element == '')){
+        console.log(element);
+        changeBoxColor("box" + element, takenBox);
+        disableBox("button" + element, true);
+      }
+      
+    });
 
-            changeBoxColor("box" + i, usersBox);
-            disableBox("button" + i, true);
-  
-          }else if(i == y){
-  
-            changeBoxColor("box" + i, takenBox);
-            disableBox("button" + i, true);
-  
-          }
+    data.usersBoxes.split(',').forEach(element => {
 
-        });
-        
-      });
+      if(!(element == '0' || element == '')){
+        changeBoxColor("box" + element, usersBox);
+        disableBox("button" + element, true);
+      }
 
-    }
+    });
+
+    //update lottery timer and total pool
+
+    document.getElementById('timeLeft_Pool').innerHTML = 'Time left: ' + 0 + 'h | Pool: ' + (data.takenLotteryNumbers.split(',').length) + ' $';
 
   });
 
@@ -126,6 +133,7 @@ function UpdateGrid(){
 // change color of box
 function changeBoxColor(boxID, Color){
 
+  console.log(boxID);
   document.getElementById(boxID).style.backgroundColor = Color;
 
 }

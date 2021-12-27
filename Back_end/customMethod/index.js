@@ -5,21 +5,26 @@ function matchInArays(array1, array2, callback){
 
     let matchedValues = new Array();
 
-    array1.forEach(element => {
-            
-        array2.forEach(purchasedNumbers => {
-            
-            if(element == purchasedNumbers){
+    console.log(array1);
+    console.log(array2);
 
-                ++matches;
-                matchedValues.push(element);
-            }
+        array1.forEach(requestedNumbers => {
+            
+            array2.forEach(purchasedNumbers => {
+                
+                if(requestedNumbers == purchasedNumbers){
+    
+                    ++matches;
+                    matchedValues.push(requestedNumbers);
 
+                }
+    
+            });
+    
         });
 
-    });
+        callback(matches, matchedValues.toString());
 
-    callback(matches, matchedValues.toString());
 }
 
 
