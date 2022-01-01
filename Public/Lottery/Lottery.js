@@ -124,7 +124,7 @@ function UpdateGrid(){
 
     //update lottery timer and total pool
 
-    document.getElementById('timeLeft_Pool').innerHTML = 'Time left: ' + 0 + 'h | Pool: ' + (data.takenLotteryNumbers.split(',').length) + ' $';
+    document.getElementById('timeLeft_Pool').innerHTML = 'Time left: ' + 0 + 'h | Pool: ' + (data.takenLotteryNumbers.split(',').length - 2) + ' $'; // the -2 is a temporary bad solution will need fix in future
 
   });
 

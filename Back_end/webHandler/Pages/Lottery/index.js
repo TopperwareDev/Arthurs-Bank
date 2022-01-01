@@ -87,7 +87,7 @@ app.post("/Lottery/BuyTickets", (request,respond) => { //validate lottery purcha
 
                                     console.log(cleaned2);
 
-                                   mysqlDataBaseController.editValue('WEB_LOGIN', 'LOTTERY', cleaned1 + cleaned2 + ',', "USERNAME", username);
+                                   mysqlDataBaseController.editValue('WEB_LOGIN', 'LOTTERY', cleaned1  + ',' + cleaned2 + ',', "USERNAME", username);
 
                                });
                          });
@@ -106,7 +106,7 @@ app.post("/Lottery/BuyTickets", (request,respond) => { //validate lottery purcha
                            list.split(',').forEach(element => { 
                             
                                if(!(element == '0' || element == '')){
-                                   array.push(element+',');
+                                   array.push(element);
                                }
 
                            });

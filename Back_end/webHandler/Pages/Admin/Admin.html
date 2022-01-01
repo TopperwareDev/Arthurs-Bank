@@ -1,1 +1,50 @@
-ahhahahahhah this is admin page u no have accsess
+
+<title>Admin Page</title>
+
+<body>
+    
+    <div class="title-div">
+
+        <h1>Admin Page</h1>
+
+    </div>
+
+    <div class="admin-pannel">
+
+        <div class="lottery-controll-pannel">
+
+            <p>Lotery Controll Pannel</p>
+
+            <button onclick="resetLotery()" class="select-winner" > Select Winner / Restart </button>
+
+            <div class="participating-users">
+
+                <p style="transform: translateY(-12px);">Participating Users</p>
+                <p style="transform: translateY(-15px);" id="participaiting_Users_Ratio">LOADING</p>
+
+                <table class="participating-users-table" id="par-table"></table>
+
+            </div>
+
+            <p class="taken-Numbers" id="taken_Lotery_Numbers">Taken Lottery Numbers: LOADING</p>
+
+
+
+        </div>
+
+    </div>
+    
+</body>
+
+
+<! Calls css/js or else files relative to server online server (Dont touch)>
+<link rel="stylesheet" type="text/css" href="/Public/Admin/Admin.css"/>
+<script src="/Public/Admin/Admin.js"></script>
+
+<! page logo>
+<link rel='icon' href='/Public/Icons/lock.ico' class='js-favicon'>
+
+<! fonts>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap" rel="stylesheet">
