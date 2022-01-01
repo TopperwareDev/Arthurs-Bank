@@ -82,7 +82,7 @@ function BuylotteryTickets(){
         headers: {'Content-Type': 'application/json'}
       });
 
-  }
+    }
 
   selectedBoxes = [];
   updatePrice(0, pricePrTicket);
@@ -103,10 +103,7 @@ function UpdateGrid(){
 
     data.takenLotteryNumbers.split(',').forEach(element => {
 
-
-      console.log(data.takenLotteryNumbers);
       if(!(element == '0' || element == '')){
-        console.log(element);
         changeBoxColor("box" + element, takenBox);
         disableBox("button" + element, true);
       }
@@ -133,7 +130,6 @@ function UpdateGrid(){
 // change color of box
 function changeBoxColor(boxID, Color){
 
-  console.log(boxID);
   document.getElementById(boxID).style.backgroundColor = Color;
 
 }

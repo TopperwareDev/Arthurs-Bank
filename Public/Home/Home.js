@@ -5,8 +5,6 @@ let url = '/home/data';
 const accountName = document.getElementById("accountName");
 const balance = document.getElementById("bal");
 
-console.log('This is called');
-
 //Request data from server
 fetch(url).then(res => res.json()).then(out => gotdata(out));
 

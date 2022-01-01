@@ -190,6 +190,14 @@ function editValue(table_name, collum, value, searchCollum, searchValue){
 
 }
 
+function resetLotery(table_name, collum, value){
+
+  const sql = "UPDATE " + table_name + " SET " + collum + " = " + "'" + value + "'" + " WHERE " + collum + " != " + "0";
+
+  con.query(sql);
+
+}
+
 function deleteTableContents(table_name){
 
   const sql = 'DELETE FROM ' + table_name;
@@ -207,6 +215,7 @@ module.exports={
   getValue2p0,
   getCollum,
   editValue,
-  deleteTableContents
+  deleteTableContents,
+  resetLotery
 
 };

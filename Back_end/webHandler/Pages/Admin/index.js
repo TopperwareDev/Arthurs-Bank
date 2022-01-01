@@ -31,8 +31,6 @@ app.get("/Admin", (request,respond) => { // autenticate user and send page
 
         }
 
-        
-
     });
 
 });
@@ -63,5 +61,26 @@ app.get("/Admin/lotery_Data", (request,respond) => {
 
         });
     });
+
+});
+
+app.get("/Admin/lotery_reset", (request,respond) => {
+
+    authentication.validateCookie(request, (validated, username) =>{ //Check Authentication cookie
+
+        if(validated){
+
+           mysqlDataBaseController.resetLotery('WEB_LOGIN', 'LOTTERY', 0)
+
+        }else{
+
+            respond.redirect('/Login');
+
+        }
+
+    });
+
+    respond.json();
+
 
 });

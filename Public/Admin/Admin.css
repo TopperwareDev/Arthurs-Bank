@@ -66,6 +66,12 @@ body{
     font-size: 12px;
 }
 
+.participating-users-table{
+    height: 200px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
 /*
 Colors from color pallet
 #5CC8FF
