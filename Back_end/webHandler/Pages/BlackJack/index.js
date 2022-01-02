@@ -1,8 +1,14 @@
 var express = require('express');
 var app = module.exports = express();
 
-app.get("/Blackjack", (req,res) => {
+app.get("/Blackjack", (request,respond) => {
 
-res.sendFile(__dirname + '/Blackjack.html')
+    respond.sendFile(__dirname + '/Blackjack.html')
 
+});
+
+app.post("/Blackjack/chipPurchase", (request,respond) => {
+
+    console.log("uh oh yay");
+    
 });

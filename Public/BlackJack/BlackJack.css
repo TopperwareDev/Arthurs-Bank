@@ -5,9 +5,9 @@ body {
 .background {
     position: absolute;
     top: 150px;
-    margin-left: 10%;
+    margin-left: 20%;
     margin-right: 5%;
-    width: 90%;
+    width: 75%;
     height: 600px;
     background-color: #009900;
     border-radius: 20px 20px 20px 20px;
@@ -59,13 +59,13 @@ body {
 .controls{
     position: absolute;
     top: 150px;
-    margin-left: 1%;
-    margin-right: 95%;
-    width: 90%;
-    height: 600px;
+    margin-left: 300px;
+    margin-right: auto;
+    width: 100px;
+    height: 450px;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
-    border-color: crimson;
+    border-color: teal;
     border-width: 5px;
 }
 
@@ -73,7 +73,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: 40px;
     margin-left: auto;
     margin-right: auto;
     width: 75px;
@@ -85,7 +85,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 100px;
+    top: 140px;
     margin-left: auto;
     margin-right: auto;
     width: 75px;
@@ -97,7 +97,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 200px;
+    top: 240px;
     margin-left: auto;
     margin-right: auto;
     width: 75px;
@@ -109,10 +109,42 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 300px;
+    top: 340px;
     margin-left: auto;
     margin-right: auto;
     width: 75px;
     height: 75px;
     cursor: pointer;
-  }
+}
+
+.c_add {
+    position: absolute;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.c_minus {
+    position: absolute;
+    top: 350px;
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+}
+
+.c_confirm {
+    position: absolute;
+    top: 550px;
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+}
+
+.c_number {
+    position: absolute;
+    top: 750px;
+    width: 100px;
+    height: 100px;
+    background-color: lime;
+}

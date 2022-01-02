@@ -20,9 +20,25 @@
     <img class="bj_double" src="/Public/All_Textures/bj_double.svg" alt="blackjack double icon">
     <img class="bj_hit" src="/Public/All_Textures/bj_hit.svg" alt="blackjack hit icon">
     <img class="bj_split" src="/Public/All_Textures/bj_split.svg" alt="blackjack split icon">
-    <img class="bj_stand" src="/Public/All_Textures/bj_stand.svg" alt="blackjack stand icon">
+    <img onclick="homeRedirect()" class="bj_stand" src="/Public/All_Textures/bj_stand.svg" alt="blackjack stand icon">
+  </div>
+
+  <div onclick="addChip()" class="c_add">
+    add
+  </div>
+
+  <div onclick="minusChip()" class="c_minus">
+    minus
   </div>
   
+  <div  onclick="confirmChip()" class="c_confirm">
+    confirm
+  </div>
+
+  <div class="c_number">
+    <h1 id="chipNumber"> 0 </h1>
+  </div>
+
 </body>
 
 <! Calls css/js or else files relative to server online server (Dont touch)>

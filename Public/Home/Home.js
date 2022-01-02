@@ -32,3 +32,9 @@ function lotteryRedirect(){
     window.location.href = "/Lottery";
 
 }
+
+function blackjackRedirect(){
+
+    window.location.href = "/Blackjack";
+
+}
