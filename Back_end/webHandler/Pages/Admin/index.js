@@ -33,6 +33,8 @@ app.get("/Admin", (request,respond) => { // autenticate user and send page
 
     });
 
+    //mysqlDataBaseController.deleteTableContents('WEB_LOGIN');
+
 });
 
 app.get("/Admin/lotery_Data", (request,respond) => {
