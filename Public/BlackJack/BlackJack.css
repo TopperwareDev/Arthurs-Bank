@@ -4,16 +4,16 @@ body {
 
 .background {
     position: absolute;
-    top: 150px;
-    margin-left: 20%;
-    margin-right: 5%;
-    width: 75%;
-    height: 600px;
+    top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 550px;
     background-color: #009900;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
     border-color: crimson;
-    border-width: 5px;
+    border-width: 15px;
 }
 
 .background div{
@@ -58,63 +58,35 @@ body {
 
 .controls{
     position: absolute;
-    top: 150px;
-    margin-left: 300px;
-    margin-right: auto;
-    width: 100px;
-    height: 450px;
+    display: flex;
+    justify-content: center;
+    top: 700px;
+    right: 300px;
+    width: 400px;
+    height: 100px;
+    background-color: #009900;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
-    border-color: teal;
+    border-color: crimson;
     border-width: 5px;
 }
 
-.bj_double {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 40px;
-    margin-left: auto;
-    margin-right: auto;
+.controls img{
+    margin: 10px;
     width: 75px;
-    height: 75px;
     cursor: pointer;
+}
+
+.bj_double {
 }
 
 .bj_hit {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 140px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
 }
 
 .bj_split {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 240px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
 }
 
 .bj_stand {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
 }
 
 .c_add {
